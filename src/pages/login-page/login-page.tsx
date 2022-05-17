@@ -4,7 +4,7 @@ import React from "react";
 import useLoginPage from "./hooks/use-login-page";
 import styles from "./login-page.module.scss";
 
-const LoginPage = (props: any) => {
+const LoginPage: React.FC = () => {
   const { loading, setPassword, setUsername, handleLogin } = useLoginPage();
   return (
     <div className={styles.login}>
