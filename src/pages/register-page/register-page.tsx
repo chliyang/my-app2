@@ -1,44 +1,28 @@
 import { Button, Form, Input } from "antd";
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import http from "../../utils/http/request";
+import React from "react";
+import useRegisterPage from "./hooks/use-register-page";
 import styles from "./register-page.module.scss";
 
-const RegisterPage = (props: any) => {
-  const [username, setUsername] = useState<string>();
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
-  const [phoneNumber, setPhoneNumber] = useState<string>();
-  const [loading, setLoading] = useState<string>();
-  const history = useHistory();
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 4 },
+    sm: { span: 6 }
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 16 }
+  }
+};
 
-  const formItemLayout = {
-    labelCol: {
-      xs: { span: 4 },
-      sm: { span: 6 }
-    },
-    wrapperCol: {
-      xs: { span: 24 },
-      sm: { span: 16 }
-    }
-  };
-
-  const handleRegister = () => {
-    setLoading("正在注册...");
-    const data = { username, email, password, phoneNumber };
-    http("post", "/register", {}, data)
-      .then(() => {
-        setLoading("注册成功, 为您自动跳转登录页面");
-      })
-      .then(() => {
-        history.push("/login");
-        window.location.reload();
-      })
-      .catch((e) => {
-        setLoading("注册失败, " + e);
-      });
-  };
-
+const RegisterPage: React.FC = () => {
+  const {
+    loading,
+    setEmail,
+    setPassword,
+    setPhoneNumber,
+    setUsername,
+    handleRegister
+  } = useRegisterPage();
   return (
     <div className={styles.register}>
       <Form
