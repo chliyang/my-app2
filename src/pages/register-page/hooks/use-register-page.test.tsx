@@ -30,4 +30,20 @@ describe("useRegisterPage", () => {
       expect(result.current.loading).toBe("注册成功, 为您自动跳转登录页面");
     });
   });
+
+  it("should login failed", async () => {
+    http.mockImplementation(() => Promise.reject(new Error("error")));
+    const { result } = renderHook(useRegisterPage);
+
+    act(() => {
+      result.current.handleRegister();
+    });
+
+    await waitFor(() => {
+      expect(result.current.loading).toBe("正在注册...");
+    });
+    await waitFor(() => {
+      expect(result.current.loading).toBe("注册失败, Error: error");
+    });
+  });
 });
