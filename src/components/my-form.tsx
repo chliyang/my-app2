@@ -16,7 +16,6 @@ interface IMyFormProps {
   styles?: {
     readonly [key: string]: string;
   };
-  hasMoreInput?: boolean,
   title?: string,
   isLogin?: boolean,
   showConfirmPassword?: boolean,
@@ -32,31 +31,17 @@ const MyForm: React.FC<IMyFormProps> = ({
   setUsername,
   setPassword,
   title,
-  isLogin = true,
+  isLogin = false,
   showConfirmPassword = false,
   showEmail = false,
   showPhone = false,
-  hasMoreInput = false,
   handleSubmit,
   setEmail,
   setPhoneNumber,
   styles
 }) => {
-  const formItemLayout = hasMoreInput
-    ? {
-      labelCol: {
-        xs: { span: 4 },
-        sm: { span: 6 }
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 }
-      }
-    }
-    : {};
   return (
     <Form
-      {...formItemLayout}
       name="my-form"
       className="register-form"
       initialValues={{ remember: true }}
@@ -115,7 +100,6 @@ const MyForm: React.FC<IMyFormProps> = ({
 
       {showEmail && <Form.Item
         name="email"
-        label="邮箱"
         rules={[
           {
             type: "email",
@@ -135,7 +119,6 @@ const MyForm: React.FC<IMyFormProps> = ({
       </Form.Item>}
       {showPhone && <Form.Item
         name="phone"
-        label="电话号码"
         rules={[
           {
             required: true,

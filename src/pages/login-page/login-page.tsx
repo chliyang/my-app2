@@ -9,6 +9,7 @@ const LoginPage: React.FC = () => {
     <div className={styles.login}>
       <MyForm
         loading={loading}
+        isLogin={true}
         buttonText={"登录"}
         setUsername={setUsername}
         setPassword={setPassword}
