@@ -43,8 +43,15 @@
         "no-template-curly-in-string": "error",
         "multiline-ternary": [
             1,
-            "never"
+            "always"
         ],
-        "no-extra-boolean-cast": "error"
+        "no-extra-boolean-cast": "error",
+        "indent": [
+            "error",
+            2,
+            {
+                "ObjectExpression": 1
+            }
+        ]
     }
 }
