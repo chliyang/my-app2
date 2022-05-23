@@ -1,6 +1,5 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
-import http from "../../../utils/http/request";
 import useRegisterPage from "./use-register-page";
 
 jest.mock("react-router-dom", () => ({
@@ -9,10 +8,12 @@ jest.mock("react-router-dom", () => ({
   })
 }));
 
-jest.mock("../../../utils/http/request", () => jest.fn());
+const mockHttp = jest.fn();
+jest.mock("../../../utils/http/request", () => () => mockHttp());
+
 describe("useRegisterPage", () => {
   it("should register success", async () => {
-    http.mockImplementation(() =>
+    mockHttp.mockImplementation(() =>
       Promise.resolve({
         data: { username: "user name", password: "password" }
       })
@@ -32,7 +33,7 @@ describe("useRegisterPage", () => {
   });
 
   it("should login failed", async () => {
-    http.mockImplementation(() => Promise.reject(new Error("error")));
+    mockHttp.mockImplementation(() => Promise.reject(new Error("error")));
     const { result } = renderHook(useRegisterPage);
 
     act(() => {

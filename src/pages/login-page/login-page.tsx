@@ -1,5 +1,5 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import React from "react";
 import useLoginPage from "./hooks/use-login-page";
 import styles from "./login-page.module.scss";
@@ -37,14 +37,6 @@ const LoginPage: React.FC = () => {
             type="password"
             placeholder="请输入密码"
           />
-        </Form.Item>
-        <Form.Item>
-          <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>记住密码</Checkbox>
-          </Form.Item>
-          <a className={styles.forgot} href="">
-            忘记密码？
-          </a>
         </Form.Item>
         <Form.Item>
           <Button

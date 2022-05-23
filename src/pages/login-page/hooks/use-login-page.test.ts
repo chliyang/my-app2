@@ -1,7 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
 import useLoginPage from "./use-login-page";
-import http from "../../../utils/http/request";
 
 jest.mock("react-router-dom", () => ({
   useHistory: () => ({
@@ -9,32 +8,12 @@ jest.mock("react-router-dom", () => ({
   })
 }));
 
-// const mockHttpRequest = http.default as jest.Mock;
+const mockHttp = jest.fn();
 
-// jest.mock(
-//   "../../../utils/http/request",
-//   () => () =>
-//     jest
-//       .fn()
-//       .mockImplementationOnce(() =>
-//         Promise.resolve({
-//           data: { username: "user name", password: "password" }
-//         })
-//       )
-// );
-
-// jest.mock(
-//   "../../../utils/http/request",
-//   () => () =>
-//     Promise.resolve({
-//       data: { username: "user name", password: "password" }
-//     })
-// );
-
-jest.mock("../../../utils/http/request", () => jest.fn());
+jest.mock("../../../utils/http/request", () => () => mockHttp());
 describe("useLoginPage", () => {
   it("should login success", async () => {
-    http.mockImplementation(() =>
+    mockHttp.mockImplementation(() =>
       Promise.resolve({
         data: { username: "user name", password: "password" }
       })
@@ -57,7 +36,7 @@ describe("useLoginPage", () => {
   });
 
   it("should login failed", async () => {
-    http.mockImplementation(() => Promise.reject(new Error("error")));
+    mockHttp.mockImplementation(() => Promise.reject(new Error("error")));
     // mockHttpRequest.getMockImplementation();
     const { result } = renderHook(useLoginPage);
 
