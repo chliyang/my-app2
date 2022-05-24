@@ -13,9 +13,6 @@ interface IMyFormProps {
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   handleSubmit: () => void;
-  styles?: {
-    readonly [key: string]: string;
-  };
   title?: string,
   isLogin?: boolean,
   showConfirmPassword?: boolean,
@@ -37,8 +34,7 @@ const MyForm: React.FC<IMyFormProps> = ({
   showPhone = false,
   handleSubmit,
   setEmail,
-  setPhoneNumber,
-  styles
+  setPhoneNumber
 }) => {
   return (
     <Form
@@ -47,7 +43,7 @@ const MyForm: React.FC<IMyFormProps> = ({
       initialValues={{ remember: true }}
       onFinish={handleSubmit}
     >
-      {title && <h1 className={styles?.title}>{title}</h1>}
+      {title && <h1>{title}</h1>}
       <Form.Item
         name="用户名"
         rules={[
