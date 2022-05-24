@@ -20,11 +20,9 @@ const Root = () => {
           path="/login"
           exact
           render={() => {
-            return isAuthenticated() ? (
-              <Redirect to="/home" />
-            ) : (
-              <LoginPage />
-            );
+            return isAuthenticated()
+              ? <Redirect to="/home" />
+              : <LoginPage />;
           }}
         />
         <PrivateRoute path="/" component={RouteContainer} />
