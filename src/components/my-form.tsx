@@ -142,7 +142,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         <Button type="primary" htmlType="submit" className="login-form-button w-40 h-10 ml-24 text-lg">
           {buttonText}
         </Button>
-        {isLogin && <div className="text-lg mt-6">
+        {loading === "" && isLogin && <div className="text-lg mt-6">
           或者 <a href="/register">立即注册!</a>
         </div>}
       </Form.Item>
