@@ -15,6 +15,7 @@ interface IMyFormProps {
   handleSubmit: () => void;
   title?: string,
   isLogin?: boolean,
+  inputClassName?: string,
   showConfirmPassword?: boolean,
   showEmail?: boolean,
   showPhone?: boolean,
@@ -34,12 +35,12 @@ const MyForm: React.FC<IMyFormProps> = ({
   showPhone = false,
   handleSubmit,
   setEmail,
-  setPhoneNumber
+  setPhoneNumber,
+  inputClassName
 }) => {
   return (
     <Form
       name="my-form"
-      className="register-form"
       initialValues={{ remember: true }}
       onFinish={handleSubmit}
     >
@@ -52,6 +53,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          className={inputClassName}
           prefix={<UserOutlined className="site-form-item-icon" />}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="请输入用户名"
@@ -62,6 +64,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         rules={[{ required: true, message: "请输入密码!" }]}
       >
         <Input
+          className={inputClassName}
           prefix={<LockOutlined className="site-form-item-icon" />}
           onChange={(e) => setPassword(e.target.value)}
           type="password"
@@ -88,6 +91,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          className={inputClassName}
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="请二次确认您的密码"
@@ -108,6 +112,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          className={inputClassName}
           prefix={<MailOutlined className="site-form-item-icon" />}
           placeholder="请输入邮箱地址"
           onChange={(e) => setEmail?.(e.target.value)}
@@ -127,16 +132,17 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          className={inputClassName}
           prefix={<PhoneOutlined className="site-form-item-icon" />}
           placeholder="请输入您的电话号码"
           onChange={(e) => setPhoneNumber?.(e.target.value)}
         />
       </Form.Item>}
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button type="primary" htmlType="submit" className="login-form-button w-40 h-10 ml-24 text-lg">
           {buttonText}
         </Button>
-        {isLogin && <div>
+        {isLogin && <div className="text-lg mt-6">
           或者 <a href="/register">立即注册!</a>
         </div>}
       </Form.Item>
