@@ -13,7 +13,7 @@ const HomePage = (props: any) => {
 
   return (
     <div>
-      <header>The Home Page</header>
+      <header className="text-6xl  mb-24">The Home Page</header>
       <Button
         onClick={handleClick}
         size="large"
