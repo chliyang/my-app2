@@ -12,8 +12,9 @@ const RegisterPage: React.FC = () => {
     handleRegister
   } = useRegisterPage();
   return (
-    <div>
+    <div className="box-border h-1/2 w-1/2 lg:w-1/4 bg-white shadow-lg p-10 text-lg">
       <MyForm
+        inputClassName="h-10"
         loading={loading}
         buttonText="立即注册"
         title="注册信息填写"

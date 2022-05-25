@@ -44,7 +44,7 @@ const MyForm: React.FC<IMyFormProps> = ({
       initialValues={{ remember: true }}
       onFinish={handleSubmit}
     >
-      {title && <h1>{title}</h1>}
+      {title && <div className="text-xl text-blue-700 flex justify-center mb-4">{title}</div>}
       <Form.Item
         name="用户名"
         rules={[
@@ -82,7 +82,7 @@ const MyForm: React.FC<IMyFormProps> = ({
           },
           ({ getFieldValue }) => ({
             validator(_, value) {
-              if (!value || getFieldValue("password") === value) {
+              if (!value || getFieldValue("密码") === value) {
                 return Promise.resolve();
               }
               return Promise.reject(new Error("两次输入的密码不一致!"));
@@ -146,7 +146,7 @@ const MyForm: React.FC<IMyFormProps> = ({
           或者 <a href="/register">立即注册!</a>
         </div>}
       </Form.Item>
-      <div>{loading}</div>
+      <div className="text-lg text-blue-500 -mt-2">{loading}</div>
     </Form>
   );
 };
