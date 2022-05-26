@@ -5,6 +5,7 @@
 import "@testing-library/jest-dom";
 import "jest-location-mock";
 import "./mock";
+import Schema from "async-validator";
 
 window.matchMedia = (query) => ({
   matches: false,
@@ -16,3 +17,5 @@ window.matchMedia = (query) => ({
   removeEventListener: jest.fn(),
   dispatchEvent: jest.fn()
 });
+
+Schema.warning = function () {};
