@@ -53,6 +53,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          data-testid="user-name"
           className={inputClassName}
           prefix={<UserOutlined className="site-form-item-icon" />}
           onChange={(e) => setUsername(e.target.value)}
@@ -64,6 +65,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         rules={[{ required: true, message: "请输入密码!" }]}
       >
         <Input
+          data-testid="password"
           className={inputClassName}
           prefix={<LockOutlined className="site-form-item-icon" />}
           onChange={(e) => setPassword(e.target.value)}
@@ -139,7 +141,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         />
       </Form.Item>}
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button w-40 h-10 ml-24 text-lg">
+        <Button data-testid="submit-button" type="primary" htmlType="submit" className="login-form-button w-40 h-10 ml-24 text-lg">
           {buttonText}
         </Button>
         {loading === "" && isLogin && <div className="text-lg mt-6">

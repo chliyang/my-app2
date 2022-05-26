@@ -4,6 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
 import "jest-location-mock";
+import "./mock";
 
 window.matchMedia = (query) => ({
   matches: false,
