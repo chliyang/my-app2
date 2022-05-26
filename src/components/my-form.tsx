@@ -93,6 +93,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          data-testid="password-confirm"
           className={inputClassName}
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
@@ -114,6 +115,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          data-testid="email"
           className={inputClassName}
           prefix={<MailOutlined className="site-form-item-icon" />}
           placeholder="请输入邮箱地址"
@@ -134,6 +136,7 @@ const MyForm: React.FC<IMyFormProps> = ({
         ]}
       >
         <Input
+          data-testid="phone"
           className={inputClassName}
           prefix={<PhoneOutlined className="site-form-item-icon" />}
           placeholder="请输入您的电话号码"
