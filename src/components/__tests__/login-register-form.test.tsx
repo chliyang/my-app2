@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
-import MyForm from "../my-form";
+import LoginRegisterForm from "../login-register-form";
 
 describe("# loginPage", () => {
   const mockHandleSubmit = jest.fn();
@@ -14,7 +14,7 @@ describe("# loginPage", () => {
 
   it("should render common UI", () => {
     const { getByTestId, getByText } = render(
-      <MyForm {...mockMyFormProps} isLogin={true} />
+      <LoginRegisterForm {...mockMyFormProps} isLogin={true} />
     );
 
     expect(getByTestId("user-name")).toBeInTheDocument();
@@ -24,7 +24,7 @@ describe("# loginPage", () => {
 
   it("should render other input when show flag is true", () => {
     const { getByTestId } = render(
-      <MyForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
     );
 
     expect(getByTestId("user-name")).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe("# loginPage", () => {
 
   it("should show require message after click submit button, when input nothing", async () => {
     const { getByTestId, getByText } = render(
-      <MyForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
     );
 
     act(() => {
@@ -56,7 +56,7 @@ describe("# loginPage", () => {
 
   it("should show error message, when input wrong", async () => {
     const { getByTestId, getByText } = render(
-      <MyForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
     );
 
     act(() => {

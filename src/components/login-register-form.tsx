@@ -7,7 +7,7 @@ import {
   PhoneOutlined
 } from "@ant-design/icons";
 
-interface IMyFormProps {
+interface ILoginRegisterFormProps {
   loading: string;
   buttonText: string;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
@@ -23,7 +23,7 @@ interface IMyFormProps {
   setPhoneNumber?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const MyForm: React.FC<IMyFormProps> = ({
+const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
   loading,
   buttonText,
   setUsername,
@@ -156,4 +156,4 @@ const MyForm: React.FC<IMyFormProps> = ({
   );
 };
 
-export default MyForm;
+export default LoginRegisterForm;
