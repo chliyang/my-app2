@@ -2,12 +2,6 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
 import MyForm from "../my-form";
 
-jest.mock("react-router-dom", () => ({
-  useHistory: () => ({
-    push: jest.fn()
-  })
-}));
-
 describe("# loginPage", () => {
   const mockHandleSubmit = jest.fn();
   const mockMyFormProps = {
@@ -52,8 +46,7 @@ describe("# loginPage", () => {
     await waitFor(
       () => {
         expect(getByText("请输入用户名!")).toBeInTheDocument();
-      },
-      { timeout: 1000000 }
+      }
     );
     expect(getByText("请输入密码!")).toBeInTheDocument();
     expect(getByText("请二次确认您的密码")).toBeInTheDocument();
@@ -79,8 +72,7 @@ describe("# loginPage", () => {
     await waitFor(
       () => {
         expect(getByText("用户名长度不小于6")).toBeInTheDocument();
-      },
-      { timeout: 1000000 }
+      }
     );
     expect(getByText("两次输入的密码不一致!")).toBeInTheDocument();
     expect(getByText("请输入正确的邮箱地址！")).toBeInTheDocument();
