@@ -13,8 +13,8 @@ describe("# loginPage", () => {
     const { getByTestId, getByText } = render(<LoginPage />);
 
     expect(getByTestId("login-form")).toBeInTheDocument();
-    expect(getByText(/登 录/i)).toBeInTheDocument();
-    expect(getByText(/立即注册/i)).toBeInTheDocument();
+    expect(getByText("登 录")).toBeInTheDocument();
+    expect(getByText("立即注册!")).toBeInTheDocument();
   });
 
   it("should loading after click login button", async () => {
@@ -28,7 +28,7 @@ describe("# loginPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText(/正在登录/i)).toBeInTheDocument();
+      expect(getByText("正在登录...")).toBeInTheDocument();
     }, { timeout: 1000000 });
   });
 
@@ -43,7 +43,7 @@ describe("# loginPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText(/登录成功/i)).toBeInTheDocument();
+      expect(getByText("登录成功")).toBeInTheDocument();
     }, { timeout: 1000000 });
   });
 
@@ -58,7 +58,7 @@ describe("# loginPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText(/密码错误/i)).toBeInTheDocument();
+      expect(getByText("登录失败, 用户名或密码错误")).toBeInTheDocument();
     }, { timeout: 1000000 });
   });
 });

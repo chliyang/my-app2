@@ -13,8 +13,8 @@ describe("# loginPage", () => {
     const { getByTestId, getByText } = render(<RegisterPage />);
 
     expect(getByTestId("register-form")).toBeInTheDocument();
-    expect(getByText(/注册信息填写/i)).toBeInTheDocument();
-    expect(getByText(/立即注册/i)).toBeInTheDocument();
+    expect(getByText("注册信息填写")).toBeInTheDocument();
+    expect(getByText("立即注册")).toBeInTheDocument();
   });
 
   it("should loading after click register button", async () => {
@@ -31,7 +31,7 @@ describe("# loginPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText(/正在注册/i)).toBeInTheDocument();
+      expect(getByText("正在注册...")).toBeInTheDocument();
     }, { timeout: 1000000 });
   });
 
@@ -49,7 +49,7 @@ describe("# loginPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText(/注册成功/i)).toBeInTheDocument();
+      expect(getByText("注册成功, 为您自动跳转登录页面")).toBeInTheDocument();
     }, { timeout: 1000000 });
   });
 });

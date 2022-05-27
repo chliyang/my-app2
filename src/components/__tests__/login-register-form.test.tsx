@@ -19,7 +19,7 @@ describe("# loginPage", () => {
 
     expect(getByTestId("user-name")).toBeInTheDocument();
     expect(getByTestId("password")).toBeInTheDocument();
-    expect(getByText(/Submit/i)).toBeInTheDocument();
+    expect(getByText("Submit")).toBeInTheDocument();
   });
 
   it("should render other input when show flag is true", () => {
