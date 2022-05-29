@@ -5,7 +5,7 @@ import LoginRegisterForm, { ILoginRegisterFormProps } from "../login-register-fo
 describe("# loginPage", () => {
   const mockHandleSubmit = jest.fn();
   const mockLoginRegisterFormProps: ILoginRegisterFormProps = {
-    loading: "loading...",
+    loadingMessage: "loading...",
     buttonText: "Submit",
     setUsername: jest.fn(),
     setPassword: jest.fn(),
@@ -24,7 +24,7 @@ describe("# loginPage", () => {
 
   it("should render other input when show flag is true", () => {
     const { getByTestId } = render(
-      <LoginRegisterForm {...mockLoginRegisterFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockLoginRegisterFormProps} />
     );
 
     expect(getByTestId("user-name")).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe("# loginPage", () => {
 
   it("should show require message after click submit button, when input nothing", async () => {
     const { getByTestId, getByText } = render(
-      <LoginRegisterForm {...mockLoginRegisterFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockLoginRegisterFormProps} />
     );
 
     act(() => {
@@ -56,7 +56,7 @@ describe("# loginPage", () => {
 
   it("should show error message, when input wrong", async () => {
     const { getByTestId, getByText } = render(
-      <LoginRegisterForm {...mockLoginRegisterFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockLoginRegisterFormProps} />
     );
 
     act(() => {

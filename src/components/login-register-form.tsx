@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 
 export interface ILoginRegisterFormProps {
-  loading: string;
+  loadingMessage: string;
   buttonText: string;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
@@ -16,23 +16,17 @@ export interface ILoginRegisterFormProps {
   title?: string,
   isLogin?: boolean,
   inputClassName?: string,
-  showConfirmPassword?: boolean,
-  showEmail?: boolean,
-  showPhone?: boolean,
   setEmail?: React.Dispatch<React.SetStateAction<string>>;
   setPhoneNumber?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
-  loading,
+  loadingMessage,
   buttonText,
   setUsername,
   setPassword,
   title,
   isLogin = false,
-  showConfirmPassword = false,
-  showEmail = false,
-  showPhone = false,
   handleSubmit,
   setEmail,
   setPhoneNumber,
@@ -73,7 +67,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
           placeholder="请输入密码"
         />
       </Form.Item>
-      {showConfirmPassword && <Form.Item
+      {!isLogin && <Form.Item
         name="confirm"
         dependencies={["password"]}
         hasFeedback
@@ -101,7 +95,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
         />
       </Form.Item>}
 
-      {showEmail && <Form.Item
+      {!isLogin && <Form.Item
         name="email"
         rules={[
           {
@@ -122,7 +116,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
           onChange={(e) => setEmail?.(e.target.value)}
         />
       </Form.Item>}
-      {showPhone && <Form.Item
+      {!isLogin && <Form.Item
         name="phone"
         rules={[
           {
@@ -147,11 +141,11 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
         <Button data-testid="submit-button" type="primary" htmlType="submit" className="login-form-button w-40 h-10 ml-24 text-lg">
           {buttonText}
         </Button>
-        {loading === "" && isLogin && <div className="text-lg mt-6">
+        {loadingMessage === "" && isLogin && <div className="text-lg mt-6">
           或者 <a href="/register">立即注册!</a>
         </div>}
       </Form.Item>
-      <div className="text-lg text-blue-500 -mt-2">{loading}</div>
+      <div className="text-lg text-blue-500 -mt-2">{loadingMessage}</div>
     </Form>
   );
 };
