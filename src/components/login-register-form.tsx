@@ -7,7 +7,7 @@ import {
   PhoneOutlined
 } from "@ant-design/icons";
 
-interface ILoginRegisterFormProps {
+export interface ILoginRegisterFormProps {
   loading: string;
   buttonText: string;
   setUsername: React.Dispatch<React.SetStateAction<string>>;

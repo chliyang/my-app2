@@ -1,10 +1,10 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
-import LoginRegisterForm from "../login-register-form";
+import LoginRegisterForm, { ILoginRegisterFormProps } from "../login-register-form";
 
 describe("# loginPage", () => {
   const mockHandleSubmit = jest.fn();
-  const mockMyFormProps = {
+  const mockLoginRegisterFormProps: ILoginRegisterFormProps = {
     loading: "loading...",
     buttonText: "Submit",
     setUsername: jest.fn(),
@@ -14,7 +14,7 @@ describe("# loginPage", () => {
 
   it("should render common UI", () => {
     const { getByTestId, getByText } = render(
-      <LoginRegisterForm {...mockMyFormProps} isLogin={true} />
+      <LoginRegisterForm {...mockLoginRegisterFormProps} isLogin={true} />
     );
 
     expect(getByTestId("user-name")).toBeInTheDocument();
@@ -24,7 +24,7 @@ describe("# loginPage", () => {
 
   it("should render other input when show flag is true", () => {
     const { getByTestId } = render(
-      <LoginRegisterForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockLoginRegisterFormProps} showConfirmPassword showEmail showPhone />
     );
 
     expect(getByTestId("user-name")).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe("# loginPage", () => {
 
   it("should show require message after click submit button, when input nothing", async () => {
     const { getByTestId, getByText } = render(
-      <LoginRegisterForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockLoginRegisterFormProps} showConfirmPassword showEmail showPhone />
     );
 
     act(() => {
@@ -56,7 +56,7 @@ describe("# loginPage", () => {
 
   it("should show error message, when input wrong", async () => {
     const { getByTestId, getByText } = render(
-      <LoginRegisterForm {...mockMyFormProps} showConfirmPassword showEmail showPhone />
+      <LoginRegisterForm {...mockLoginRegisterFormProps} showConfirmPassword showEmail showPhone />
     );
 
     act(() => {
