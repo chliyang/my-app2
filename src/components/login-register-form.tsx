@@ -9,6 +9,7 @@ import {
 import { NamePath } from "antd/lib/form/interface";
 import { Rule } from "antd/lib/form";
 import { LiteralUnion } from "antd/lib/_util/type";
+import { LoginRegisterFormRules } from "./constants/rules-constants";
 
 export interface ILoginRegisterFormProps {
   loadingMessage: string;
@@ -52,10 +53,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       hasFeedback: false,
       formItemName: "用户名",
       formItemDependencies: [],
-      formItemRules: [
-        { required: true, message: "请输入用户名!" },
-        { type: "string", min: 6, message: "用户名长度不小于6" }
-      ],
+      formItemRules: LoginRegisterFormRules.userNameRules,
       testId: "user-name",
       type: "",
       prefix: <UserOutlined className="site-form-item-icon" />,
@@ -67,7 +65,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       hasFeedback: false,
       formItemName: "密码",
       formItemDependencies: [],
-      formItemRules: [{ required: true, message: "请输入密码!" }],
+      formItemRules: LoginRegisterFormRules.passwordRules,
       testId: "password",
       type: "password",
       prefix: <LockOutlined className="site-form-item-icon" />,
@@ -79,20 +77,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       hasFeedback: true,
       formItemName: "confirm",
       formItemDependencies: ["password"],
-      formItemRules: [
-        {
-          required: true,
-          message: "请二次确认您的密码"
-        },
-        ({ getFieldValue }) => ({
-          validator(_, value) {
-            if (!value || getFieldValue("密码") === value) {
-              return Promise.resolve();
-            }
-            return Promise.reject(new Error("两次输入的密码不一致!"));
-          }
-        })
-      ],
+      formItemRules: LoginRegisterFormRules.confirmPasswordRules,
       testId: "password-confirm",
       type: "password",
       prefix: <LockOutlined className="site-form-item-icon" />,
@@ -103,16 +88,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       hasFeedback: false,
       formItemName: "email",
       formItemDependencies: [],
-      formItemRules: [
-        {
-          type: "email",
-          message: "请输入正确的邮箱地址！"
-        },
-        {
-          required: true,
-          message: "请输入邮箱地址！"
-        }
-      ],
+      formItemRules: LoginRegisterFormRules.emailRules,
       testId: "email",
       type: "",
       prefix: <MailOutlined className="site-form-item-icon" />,
@@ -124,16 +100,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       hasFeedback: false,
       formItemName: "phone",
       formItemDependencies: [],
-      formItemRules: [
-        {
-          required: true,
-          message: "请输入您的电话号码"
-        },
-        {
-          max: 11,
-          message: " 请输入正确的电话号码"
-        }
-      ],
+      formItemRules: LoginRegisterFormRules.phoneRules,
       testId: "phone",
       type: "",
       prefix: <PhoneOutlined className="site-form-item-icon" />,
