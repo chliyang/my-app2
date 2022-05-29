@@ -5,10 +5,6 @@ import useRegisterPage from "./hooks/use-register-page";
 const RegisterPage: React.FC = () => {
   const {
     loading,
-    setEmail,
-    setPassword,
-    setPhoneNumber,
-    setUsername,
     handleRegister
   } = useRegisterPage();
   return (
@@ -17,10 +13,6 @@ const RegisterPage: React.FC = () => {
         inputClassName="h-10"
         loadingMessage={loading}
         title="注册信息填写"
-        setUsername={setUsername}
-        setPassword={setPassword}
-        setEmail={setEmail}
-        setPhoneNumber={setPhoneNumber}
         handleSubmit={handleRegister}
       />
     </div>

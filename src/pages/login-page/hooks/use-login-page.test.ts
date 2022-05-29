@@ -1,3 +1,4 @@
+import { ISubmitData } from "./../../../components/login-register-form";
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
 import useLoginPage from "./use-login-page";
@@ -9,22 +10,24 @@ jest.mock("react-router-dom", () => ({
 }));
 
 const mockHttp = jest.fn();
-
 jest.mock("../../../utils/http/request", () => () => mockHttp());
+
 describe("useLoginPage", () => {
+  const mockSubmitData: ISubmitData = {
+    username: "user name",
+    password: "password"
+  };
   it("should login success", async () => {
     mockHttp.mockImplementation(() =>
       Promise.resolve({
-        data: { username: "user name", password: "password" }
+        data: mockSubmitData
       })
     );
     // mockHttpRequest.getMockImplementation();
     const { result } = renderHook(useLoginPage);
 
     act(() => {
-      result.current.setUsername("user name");
-      result.current.setPassword("password");
-      result.current.handleLogin();
+      result.current.handleLogin(mockSubmitData);
     });
 
     await waitFor(() => {
@@ -41,9 +44,7 @@ describe("useLoginPage", () => {
     const { result } = renderHook(useLoginPage);
 
     act(() => {
-      result.current.setUsername("user name");
-      result.current.setPassword("password");
-      result.current.handleLogin();
+      result.current.handleLogin(mockSubmitData);
     });
 
     await waitFor(() => {

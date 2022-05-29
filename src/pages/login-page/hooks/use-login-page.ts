@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { ISubmitData } from "../../../components/login-register-form";
 import http from "../../../utils/http/request";
 import { authenticatedSuccess } from "../../../utils/session";
 
 const useLoginPage = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<string>("");
   const history = useHistory();
 
-  const handleLogin = () => {
+  const handleLogin = (data: ISubmitData) => {
     setLoading("正在登录...");
-    const data = { username, password };
     http("post", "/login", {}, data)
       .then((res) => {
         const data = res.data;
@@ -29,8 +27,6 @@ const useLoginPage = () => {
   };
 
   return {
-    setUsername,
-    setPassword,
     loading,
     handleLogin
   };

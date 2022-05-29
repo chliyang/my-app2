@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
 import {
   LockOutlined,
@@ -11,16 +11,19 @@ import { Rule } from "antd/lib/form";
 import { LiteralUnion } from "antd/lib/_util/type";
 import { LoginRegisterFormRules } from "./constants/rules-constants";
 
+export interface ISubmitData {
+  username: string,
+  password: string,
+  email?: string,
+  phoneNumber?: string
+}
+
 export interface ILoginRegisterFormProps {
   loadingMessage: string;
-  setUsername: React.Dispatch<React.SetStateAction<string>>;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  handleSubmit: () => void;
+  handleSubmit: (data: ISubmitData) => void;
   title?: string;
   isLogin?: boolean;
   inputClassName?: string;
-  setEmail?: React.Dispatch<React.SetStateAction<string>>;
-  setPhoneNumber?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface IFormItemConfig {
@@ -38,15 +41,12 @@ interface IFormItemConfig {
 
 const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
   loadingMessage,
-  setUsername,
-  setPassword,
   title,
   isLogin = false,
   handleSubmit,
-  setEmail,
-  setPhoneNumber,
   inputClassName
 }) => {
+  const [submitData, setSubmitData] = useState<ISubmitData>({ username: "", password: "" });
   const formItemConfigs: IFormItemConfig[] = [
     {
       alwaysShow: true,
@@ -58,7 +58,10 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       type: "",
       prefix: <UserOutlined className="site-form-item-icon" />,
       placeholder: "请输入用户名",
-      onChange: (e) => setUsername(e.target.value)
+      onChange: (e) => setSubmitData((preState) => ({
+        ...preState,
+        username: e.target.value
+      }))
     },
     {
       alwaysShow: true,
@@ -70,7 +73,10 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       type: "password",
       prefix: <LockOutlined className="site-form-item-icon" />,
       placeholder: "请输入密码",
-      onChange: (e) => setPassword(e.target.value)
+      onChange: (e) => setSubmitData((preState) => ({
+        ...preState,
+        password: e.target.value
+      }))
     },
     {
       alwaysShow: false,
@@ -93,7 +99,10 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       type: "",
       prefix: <MailOutlined className="site-form-item-icon" />,
       placeholder: "请输入邮箱地址",
-      onChange: (e) => setEmail?.(e.target.value)
+      onChange: (e) => setSubmitData((preState) => ({
+        ...preState,
+        email: e.target.value
+      }))
     },
     {
       alwaysShow: false,
@@ -105,14 +114,17 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       type: "",
       prefix: <PhoneOutlined className="site-form-item-icon" />,
       placeholder: "请输入您的电话号码",
-      onChange: (e) => setPhoneNumber?.(e.target.value)
+      onChange: (e) => setSubmitData((preState) => ({
+        ...preState,
+        phoneNumber: e.target.value
+      }))
     }
   ];
   return (
     <Form
       name="login-register-form"
       initialValues={{ remember: true }}
-      onFinish={handleSubmit}
+      onFinish={() => handleSubmit(submitData)}
     >
       {title && (
         <div className="text-xl text-blue-700 flex justify-center mb-4">
