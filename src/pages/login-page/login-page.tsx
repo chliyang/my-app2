@@ -10,7 +10,6 @@ const LoginPage: React.FC = () => {
         inputClassName="h-16 w-full text-lg"
         loadingMessage={loading}
         isLogin={true}
-        buttonText={"登录"}
         setUsername={setUsername}
         setPassword={setPassword}
         handleSubmit={handleLogin}

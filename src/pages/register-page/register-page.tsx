@@ -16,7 +16,6 @@ const RegisterPage: React.FC = () => {
       <LoginRegisterForm
         inputClassName="h-10"
         loadingMessage={loading}
-        buttonText="立即注册"
         title="注册信息填写"
         setUsername={setUsername}
         setPassword={setPassword}

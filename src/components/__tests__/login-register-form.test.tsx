@@ -6,7 +6,6 @@ describe("# loginPage", () => {
   const mockHandleSubmit = jest.fn();
   const mockLoginRegisterFormProps: ILoginRegisterFormProps = {
     loadingMessage: "loading...",
-    buttonText: "Submit",
     setUsername: jest.fn(),
     setPassword: jest.fn(),
     handleSubmit: mockHandleSubmit()
@@ -19,7 +18,7 @@ describe("# loginPage", () => {
 
     expect(getByTestId("user-name")).toBeInTheDocument();
     expect(getByTestId("password")).toBeInTheDocument();
-    expect(getByText("Submit")).toBeInTheDocument();
+    expect(getByText("登 录")).toBeInTheDocument();
   });
 
   it("should render other input when show flag is true", () => {
