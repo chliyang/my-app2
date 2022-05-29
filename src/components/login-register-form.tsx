@@ -51,7 +51,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
     {
       alwaysShow: true,
       hasFeedback: false,
-      formItemName: "用户名",
+      formItemName: "username",
       formItemDependencies: [],
       formItemRules: LoginRegisterFormRules.userNameRules,
       testId: "user-name",
@@ -66,7 +66,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
     {
       alwaysShow: true,
       hasFeedback: false,
-      formItemName: "密码",
+      formItemName: "password",
       formItemDependencies: [],
       formItemRules: LoginRegisterFormRules.passwordRules,
       testId: "password",
@@ -123,7 +123,6 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
   return (
     <Form
       name="login-register-form"
-      initialValues={{ remember: true }}
       onFinish={() => handleSubmit(submitData)}
     >
       {title && (

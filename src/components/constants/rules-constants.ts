@@ -20,7 +20,7 @@ export const LoginRegisterFormRules: ILoginRegisterFormRule = {
     },
     ({ getFieldValue }) => ({
       validator(_, value) {
-        if (!value || getFieldValue("密码") === value) {
+        if (!value || getFieldValue("password") === value) {
           return Promise.resolve();
         }
         return Promise.reject(new Error("两次输入的密码不一致!"));
