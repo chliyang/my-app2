@@ -26,9 +26,11 @@ const useRegisterPage = () => {
 
   const handleEmailVerify = (email: string) => {
     http("get", "/users/email", {}, { email })
-      .then(() => {
-        setVerifyResultMessage("验证成功，请前往邮箱查看验证码");
-        setIsEmailVerifyStep(false);
+      .then((res) => {
+        setVerifyResultMessage(res.msg);
+        setTimeout(() => {
+          setIsEmailVerifyStep(false);
+        }, 3000);
       })
       .catch((e) => {
         setVerifyResultMessage("验证失败，" + e);

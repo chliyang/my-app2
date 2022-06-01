@@ -29,6 +29,22 @@ Mock.mock("/users", "get", (req: any) => {
   }
 });
 
+Mock.mock("/users/email", "get", (req: any) => {
+  const body = JSON.parse(req.body);
+  if (body.email) {
+    return {
+      code: 0,
+      msg: "验证成功，请前往邮箱查看验证码"
+    };
+  } else {
+    return {
+      code: 500,
+      data: {},
+      msg: "请重试"
+    };
+  }
+});
+
 Mock.mock("/register", "post", (req: any) => {
   const body = JSON.parse(req.body);
   if (body.username && body.email && body.password && body.verifyCode) {
