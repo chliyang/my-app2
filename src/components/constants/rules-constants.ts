@@ -5,7 +5,7 @@ interface ILoginRegisterFormRule {
   passwordRules: Rule[];
   confirmPasswordRules: Rule[];
   emailRules: Rule[];
-  phoneRules: Rule[];
+  verifyCodeRules: Rule[];
 }
 export const LoginRegisterFormRules: ILoginRegisterFormRule = {
   userNameRules: [
@@ -37,14 +37,14 @@ export const LoginRegisterFormRules: ILoginRegisterFormRule = {
       message: "请输入邮箱地址！"
     }
   ],
-  phoneRules: [
+  verifyCodeRules: [
     {
       required: true,
       message: "请输入您的电话号码"
     },
     {
-      max: 11,
-      message: " 请输入正确的电话号码"
+      len: 6,
+      message: "请输入六位验证码"
     }
   ]
 };

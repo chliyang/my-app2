@@ -4,7 +4,7 @@ import {
   LockOutlined,
   UserOutlined,
   MailOutlined,
-  PhoneOutlined
+  NumberOutlined
 } from "@ant-design/icons";
 import { NamePath } from "antd/lib/form/interface";
 import { Rule } from "antd/lib/form";
@@ -15,7 +15,7 @@ export interface ISubmitData {
   username: string,
   password: string,
   email?: string,
-  phoneNumber?: string
+  verifyCode?: string
 }
 
 export interface ILoginRegisterFormProps {
@@ -107,16 +107,16 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
     {
       alwaysShow: false,
       hasFeedback: false,
-      formItemName: "phone",
+      formItemName: "verify-code",
       formItemDependencies: [],
-      formItemRules: LoginRegisterFormRules.phoneRules,
-      testId: "phone",
+      formItemRules: LoginRegisterFormRules.verifyCodeRules,
+      testId: "verify-code",
       type: "",
-      prefix: <PhoneOutlined className="site-form-item-icon" />,
-      placeholder: "请输入您的电话号码",
+      prefix: <NumberOutlined className="site-form-item-icon" />,
+      placeholder: "请输入邮箱验证所得验证码",
       onChange: (e) => setSubmitData((preState) => ({
         ...preState,
-        phoneNumber: e.target.value
+        verifyCode: e.target.value
       }))
     }
   ];

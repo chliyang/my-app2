@@ -11,7 +11,7 @@ const useRegisterPage = () => {
 
   const handleRegister = (data: ISubmitData) => {
     setLoading("正在注册...");
-    http("post", "/register", {}, data)
+    http("post", "/users", {}, data)
       .then(() => {
         setLoading("注册成功, 为您自动跳转登录页面");
       })
