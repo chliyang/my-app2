@@ -5,6 +5,8 @@ import http from "../../../utils/http/request";
 
 const useRegisterPage = () => {
   const [loading, setLoading] = useState<string>("");
+  const [isEmailVerifyStep, setIsEmailVerifyStep] = useState<boolean>(true);
+  const [verifyResultMessage, setVerifyResultMessage] = useState<string>("");
   const history = useHistory();
 
   const handleRegister = (data: ISubmitData) => {
@@ -21,9 +23,23 @@ const useRegisterPage = () => {
         setLoading("注册失败, " + e);
       });
   };
+
+  const handleEmailVerify = (email: string) => {
+    http("get", "/users/email", {}, { email })
+      .then(() => {
+        setVerifyResultMessage("验证成功，请前往邮箱查看验证码");
+        setIsEmailVerifyStep(false);
+      })
+      .catch((e) => {
+        setVerifyResultMessage("验证失败，" + e);
+      });
+  };
   return {
     loading,
-    handleRegister
+    handleRegister,
+    verifyResultMessage,
+    isEmailVerifyStep,
+    handleEmailVerify
   };
 };
 
