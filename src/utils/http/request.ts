@@ -11,7 +11,9 @@ const server: AxiosInstance = axios.create({
   timeout: 60000,
   withCredentials: true,
   headers: {
-    "Content-Type": "application/json; charset=utf-8"
+    "Content-Type": "application/json; charset=utf-8",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Method": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   }
 });
 

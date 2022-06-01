@@ -4,7 +4,7 @@ Mock.setup({
   timeout: "500-2500" // 表示响应时间介于 200 和 600 毫秒之间，默认值是'10-100'。
 });
 
-Mock.mock("/login", "post", (req: any) => {
+Mock.mock("/users", "get", (req: any) => {
   const body = JSON.parse(req.body);
   if (body.username === "admin200" && body.password === "111111") {
     return {
@@ -31,7 +31,7 @@ Mock.mock("/login", "post", (req: any) => {
 
 Mock.mock("/register", "post", (req: any) => {
   const body = JSON.parse(req.body);
-  if (body.username && body.email && body.password && body.phoneNumber) {
+  if (body.username && body.email && body.password && body.verifyCode) {
     return {
       code: 0,
       data: {
