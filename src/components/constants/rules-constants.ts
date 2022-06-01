@@ -40,7 +40,7 @@ export const LoginRegisterFormRules: ILoginRegisterFormRule = {
   verifyCodeRules: [
     {
       required: true,
-      message: "请输入您的电话号码"
+      message: "请输入您的验证码"
     },
     {
       len: 6,
