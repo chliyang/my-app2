@@ -148,19 +148,19 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
           />
         </Form.Item>
       ))}
-      <Form.Item>
+      <Form.Item className="text-center">
         <Button
           data-testid="submit-button"
           type="primary"
           htmlType="submit"
-          className="login-form-button w-40 h-10 ml-24 text-lg"
+          className="login-form-button w-40 h-10 text-lg"
         >
           {isLogin
             ? "登 录"
             : "立即注册"}
         </Button>
         {loadingMessage === "" && isLogin && (
-          <div className="text-lg mt-6">
+          <div className="text-lg mt-6 text-left">
             或者 <a href="/register">立即注册!</a>
           </div>
         )}

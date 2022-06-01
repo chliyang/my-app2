@@ -8,7 +8,7 @@ const RegisterPage: React.FC = () => {
     handleRegister
   } = useRegisterPage();
   return (
-    <div data-testid="register-form" className="box-border h-1/2 w-1/2 lg:w-1/4 bg-white shadow-lg p-10 text-lg">
+    <div data-testid="register-form" className="box-border min-w-max h-1/2 w-1/2 lg:w-1/4 bg-white shadow-lg p-10 text-lg">
       <LoginRegisterForm
         inputClassName="h-10"
         loadingMessage={loading}
