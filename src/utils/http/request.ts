@@ -7,12 +7,14 @@ import axios, {
 } from "axios";
 
 const server: AxiosInstance = axios.create({
+  // baseURL: "http://localhost:9090",
   baseURL: "",
   timeout: 60000,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json; charset=utf-8",
     "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
     "Access-Control-Allow-Method": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   }
 });

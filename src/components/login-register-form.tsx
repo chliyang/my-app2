@@ -12,7 +12,7 @@ import { LiteralUnion } from "antd/lib/_util/type";
 import { LoginRegisterFormRules } from "./constants/rules-constants";
 
 export interface ISubmitData {
-  username: string,
+  name: string,
   password: string,
   email?: string,
   verifyCode?: string
@@ -46,7 +46,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
   handleSubmit,
   inputClassName
 }) => {
-  const [submitData, setSubmitData] = useState<ISubmitData>({ username: "", password: "" });
+  const [submitData, setSubmitData] = useState<ISubmitData>({ name: "", password: "" });
   const formItemConfigs: IFormItemConfig[] = [
     {
       alwaysShow: true,
@@ -60,7 +60,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       placeholder: "请输入用户名",
       onChange: (e) => setSubmitData((preState) => ({
         ...preState,
-        username: e.target.value
+        name: e.target.value
       }))
     },
     {

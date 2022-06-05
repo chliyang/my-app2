@@ -10,7 +10,7 @@ const useLoginPage = () => {
 
   const handleLogin = (data: ISubmitData) => {
     setLoading("正在登录...");
-    http("get", "/users", {}, data)
+    http("post", "/users/token", {}, data)
       .then((res) => {
         const data = res.data;
         authenticatedSuccess(data.token);

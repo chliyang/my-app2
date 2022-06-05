@@ -14,7 +14,7 @@ jest.mock("../../../utils/http/request", () => () => mockHttp());
 
 describe("useLoginPage", () => {
   const mockSubmitData: ISubmitData = {
-    username: "user name",
+    name: "user name",
     password: "password"
   };
   it("should login success", async () => {
