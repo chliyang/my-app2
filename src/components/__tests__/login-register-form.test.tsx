@@ -31,24 +31,12 @@ describe("# loginRegisterForm", () => {
     expect(getByTestId("verify-code")).toBeInTheDocument();
   });
 
-  it("should show require message after click submit button, when input nothing", async () => {
-    const { getByTestId, getByText } = render(
+  it("should disable submit button, when input validate failed", () => {
+    const { getByTestId } = render(
       <LoginRegisterForm {...mockLoginRegisterFormProps} />
     );
 
-    act(() => {
-      fireEvent.click(getByTestId("submit-button"));
-    });
-
-    await waitFor(
-      () => {
-        expect(getByText("请输入用户名!")).toBeInTheDocument();
-      }
-    );
-    expect(getByText("请输入密码!")).toBeInTheDocument();
-    expect(getByText("请二次确认您的密码")).toBeInTheDocument();
-    expect(getByText("请输入邮箱地址！")).toBeInTheDocument();
-    expect(getByText("请输入您的验证码")).toBeInTheDocument();
+    expect(getByTestId("submit-button")).toHaveAttribute("disabled", "");
   });
 
   it("should show error message, when input wrong", async () => {
@@ -62,8 +50,6 @@ describe("# loginRegisterForm", () => {
       fireEvent.change(getByTestId("password-confirm"), { target: { value: "4567" } });
       fireEvent.change(getByTestId("email"), { target: { value: "1234@234" } });
       fireEvent.change(getByTestId("verify-code"), { target: { value: "12345623" } });
-
-      fireEvent.click(getByTestId("submit-button"));
     });
 
     await waitFor(

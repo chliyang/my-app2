@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, Input } from "antd";
 import {
   LockOutlined,
@@ -120,8 +120,17 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       }))
     }
   ];
+
+  const [form] = Form.useForm();
+  const [, forceUpdate] = useState({});
+
+  useEffect(() => {
+    forceUpdate({});
+  }, []);
+
   return (
     <Form
+      form={form}
       name="login-register-form"
       onFinish={() => handleSubmit(submitData)}
     >
@@ -148,23 +157,27 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
           />
         </Form.Item>
       ))}
-      <Form.Item className="text-center">
-        <Button
+      <Form.Item shouldUpdate className="text-center">
+        {() => (<Button
           data-testid="submit-button"
           type="primary"
           htmlType="submit"
           className="login-form-button w-40 h-10 text-lg"
+          disabled={
+            !form.isFieldsTouched(true) ||
+            !!form.getFieldsError().filter(({ errors }) => errors.length).length
+          }
         >
           {isLogin
             ? "登 录"
             : "立即注册"}
-        </Button>
-        {loadingMessage === "" && isLogin && (
-          <div className="text-lg mt-6 text-left">
-            或者 <a href="/register">立即注册!</a>
-          </div>
-        )}
+        </Button>)}
       </Form.Item>
+      {loadingMessage === "" && isLogin && (
+        <div className="text-lg mt-6 text-left">
+          或者 <a href="/register">立即注册!</a>
+        </div>
+      )}
       <div className="text-lg text-blue-500 -mt-2">{loadingMessage}</div>
     </Form>
   );
