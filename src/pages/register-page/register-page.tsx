@@ -6,6 +6,7 @@ import useRegisterPage from "./hooks/use-register-page";
 const RegisterPage: React.FC = () => {
   const {
     loading,
+    isLoading,
     handleRegister,
     verifyResultMessage,
     isEmailVerifyStep,
@@ -16,6 +17,7 @@ const RegisterPage: React.FC = () => {
       {isEmailVerifyStep
         ? <EmailVerifyForm verifyResultMessage={verifyResultMessage} handleEmailVerify={handleEmailVerify} />
         : <LoginRegisterForm
+          isLoading={isLoading}
           inputClassName="h-10"
           loadingMessage={loading}
           title="注册信息填写"

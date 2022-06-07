@@ -5,6 +5,7 @@ import LoginRegisterForm, { ILoginRegisterFormProps } from "../login-register-fo
 describe("# loginRegisterForm", () => {
   const mockHandleSubmit = jest.fn();
   const mockLoginRegisterFormProps: ILoginRegisterFormProps = {
+    isLoading: false,
     loadingMessage: "loading...",
     handleSubmit: mockHandleSubmit()
   };

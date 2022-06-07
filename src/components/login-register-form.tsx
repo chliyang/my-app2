@@ -20,6 +20,7 @@ export interface ISubmitData {
 
 export interface ILoginRegisterFormProps {
   loadingMessage: string;
+  isLoading: boolean;
   handleSubmit: (data: ISubmitData) => void;
   title?: string;
   isLogin?: boolean;
@@ -42,6 +43,7 @@ interface IFormItemConfig {
 const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
   loadingMessage,
   title,
+  isLoading,
   isLogin = false,
   handleSubmit,
   inputClassName
@@ -163,6 +165,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
           type="primary"
           htmlType="submit"
           className="login-form-button w-40 h-10 text-lg"
+          loading={isLoading}
           disabled={
             !form.isFieldsTouched(true) ||
             !!form.getFieldsError().filter(({ errors }) => errors.length).length
