@@ -2,9 +2,10 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import LoginPage from "../login-page";
 import { act } from "react-test-renderer";
 
+const mockPush = jest.fn();
 jest.mock("react-router-dom", () => ({
   useHistory: () => ({
-    push: jest.fn()
+    push: mockPush
   })
 }));
 
@@ -33,7 +34,7 @@ describe("# loginPage", () => {
   });
 
   it("should login success, when name and password is right", async () => {
-    const { getByTestId, getByText } = render(<LoginPage />);
+    const { getByTestId } = render(<LoginPage />);
 
     act(() => {
       fireEvent.change(getByTestId("user-name"), { target: { value: "admin200" } });
@@ -43,11 +44,11 @@ describe("# loginPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText("登录成功")).toBeInTheDocument();
+      expect(mockPush).toHaveBeenCalled();
     }, { timeout: 1000000 });
   });
 
-  it("should login success, when name and password is right", async () => {
+  it("should login failed, when name and password is false", async () => {
     const { getByTestId, getByText } = render(<LoginPage />);
 
     act(() => {
@@ -58,7 +59,7 @@ describe("# loginPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText("登录失败, 用户名或密码错误")).toBeInTheDocument();
+      expect(getByText("请求错误，请稍后重试")).toBeInTheDocument();
     }, { timeout: 1000000 });
   });
 });

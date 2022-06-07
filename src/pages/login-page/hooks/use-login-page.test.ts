@@ -3,9 +3,10 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
 import useLoginPage from "./use-login-page";
 
+const mockPush = jest.fn();
 jest.mock("react-router-dom", () => ({
   useHistory: () => ({
-    push: jest.fn()
+    push: mockPush
   })
 }));
 
@@ -31,10 +32,10 @@ describe("useLoginPage", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.loading).toBe("正在登录...");
+      expect(result.current.isLoading).toBeTruthy();
     });
     await waitFor(() => {
-      expect(result.current.loading).toBe("登录成功");
+      expect(mockPush).toHaveBeenCalled();
     });
   });
 
@@ -48,10 +49,10 @@ describe("useLoginPage", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.loading).toBe("正在登录...");
+      expect(result.current.isLoading).toBeTruthy();
     });
     await waitFor(() => {
-      expect(result.current.loading).toBe("登录失败, Error: error");
+      expect(result.current.isError).toBeTruthy();
     });
   });
 });

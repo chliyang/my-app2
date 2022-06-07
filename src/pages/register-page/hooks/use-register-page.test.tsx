@@ -3,9 +3,10 @@ import { act } from "react-test-renderer";
 import { ISubmitData } from "../../../components/login-register-form";
 import useRegisterPage from "./use-register-page";
 
+const mockPush = jest.fn();
 jest.mock("react-router-dom", () => ({
   useHistory: () => ({
-    push: jest.fn()
+    push: mockPush
   })
 }));
 
@@ -30,14 +31,14 @@ describe("useRegisterPage", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.loading).toBe("正在注册...");
+      expect(result.current.isLoading).toBeTruthy();
     });
     await waitFor(() => {
-      expect(result.current.loading).toBe("注册成功, 为您自动跳转登录页面");
+      expect(mockPush).toHaveBeenCalled();
     });
   });
 
-  it("should login failed", async () => {
+  it("should register failed", async () => {
     mockHttp.mockImplementation(() => Promise.reject(new Error("error")));
     const { result } = renderHook(useRegisterPage);
 
@@ -46,10 +47,10 @@ describe("useRegisterPage", () => {
     });
 
     await waitFor(() => {
-      expect(result.current.loading).toBe("正在注册...");
+      expect(result.current.isLoading).toBeTruthy();
     });
     await waitFor(() => {
-      expect(result.current.loading).toBe("注册失败, Error: error");
+      expect(result.current.isError).toBeTruthy();
     });
   });
 });

@@ -19,8 +19,8 @@ export interface ISubmitData {
 }
 
 export interface ILoginRegisterFormProps {
-  loadingMessage: string;
   isLoading: boolean;
+  isError: boolean;
   handleSubmit: (data: ISubmitData) => void;
   title?: string;
   isLogin?: boolean;
@@ -41,9 +41,9 @@ interface IFormItemConfig {
 }
 
 const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
-  loadingMessage,
   title,
   isLoading,
+  isError,
   isLogin = false,
   handleSubmit,
   inputClassName
@@ -176,12 +176,20 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
             : "立即注册"}
         </Button>)}
       </Form.Item>
-      {loadingMessage === "" && isLogin && (
+      {!isLoading && !isError && isLogin && (
         <div className="text-lg mt-6 text-left">
           或者 <a href="/register">立即注册!</a>
         </div>
       )}
-      <div className="text-lg text-blue-500 -mt-2">{loadingMessage}</div>
+      {
+        isLoading && <div className="text-lg text-blue-500 -mt-2">{isLogin
+          ? "正在登录..."
+          : "正在注册..."}
+        </div>
+      }
+      {
+        isError && <div className="text-lg text-red-500 -mt-2">请求错误，请稍后重试</div>
+      }
     </Form>
   );
 };

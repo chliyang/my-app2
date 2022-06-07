@@ -3,13 +3,13 @@ import LoginRegisterForm from "../../components/login-register-form";
 import useLoginPage from "./hooks/use-login-page";
 
 const LoginPage: React.FC = () => {
-  const { loading, handleLogin, isLoading } = useLoginPage();
+  const { handleLogin, isLoading, isError } = useLoginPage();
   return (
     <div data-testid="login-form" className="box-border min-w-max h-1/3 w-1/2 lg:w-1/4 bg-white shadow-lg p-10 text-lg">
       <LoginRegisterForm
         inputClassName="h-16 w-full text-lg"
-        loadingMessage={loading}
         isLoading={isLoading}
+        isError={isError}
         isLogin={true}
         handleSubmit={handleLogin}
       />
