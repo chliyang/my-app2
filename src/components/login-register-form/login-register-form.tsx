@@ -9,7 +9,7 @@ import {
 import { NamePath } from "antd/lib/form/interface";
 import { Rule } from "antd/lib/form";
 import { LiteralUnion } from "antd/lib/_util/type";
-import { LoginRegisterFormRules } from "./constants/rules-constants";
+import { LoginRegisterFormRules } from "../constants/rules-constants";
 
 export interface ISubmitData {
   name: string,

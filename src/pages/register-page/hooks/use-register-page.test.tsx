@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
-import { ISubmitData } from "../../../components/login-register-form";
+import { ISubmitData } from "../../../components/login-register-form/login-register-form";
 import useRegisterPage from "./use-register-page";
 
 const mockPush = jest.fn();

@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ISubmitData } from "../../../components/login-register-form";
+import { ISubmitData } from "../../../components/login-register-form/login-register-form";
 import http from "../../../utils/http/request";
 
 const useRegisterPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [isEmailVerifyStep, setIsEmailVerifyStep] = useState<boolean>(true);
-  const [verifyResultMessage, setVerifyResultMessage] = useState<string>("");
   const history = useHistory();
 
   const handleRegister = (data: ISubmitData) => {
@@ -30,14 +29,10 @@ const useRegisterPage = () => {
     setIsLoading(true);
     http("get", "/users/email", {}, { email })
       .then((res) => {
-        setVerifyResultMessage(res.msg);
         setIsLoading(false);
-        setTimeout(() => {
-          setIsEmailVerifyStep(false);
-        }, 3000);
+        setIsEmailVerifyStep(false);
       })
       .catch(() => {
-        setVerifyResultMessage("验证失败，请稍后重试");
         setIsError(true);
       });
   };
@@ -45,7 +40,6 @@ const useRegisterPage = () => {
     isLoading,
     isError,
     handleRegister,
-    verifyResultMessage,
     isEmailVerifyStep,
     handleEmailVerify
   };

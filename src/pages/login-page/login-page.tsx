@@ -1,5 +1,5 @@
 import React from "react";
-import LoginRegisterForm from "../../components/login-register-form";
+import LoginRegisterForm from "../../components/login-register-form/login-register-form";
 import useLoginPage from "./hooks/use-login-page";
 
 const LoginPage: React.FC = () => {

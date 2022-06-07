@@ -1,4 +1,4 @@
-import { ISubmitData } from "./../../../components/login-register-form";
+import { ISubmitData } from "../../../components/login-register-form/login-register-form";
 import { renderHook, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
 import useLoginPage from "./use-login-page";

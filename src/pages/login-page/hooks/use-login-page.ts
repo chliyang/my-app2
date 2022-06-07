@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ISubmitData } from "../../../components/login-register-form";
+import { ISubmitData } from "../../../components/login-register-form/login-register-form";
 import http from "../../../utils/http/request";
 import { authenticatedSuccess } from "../../../utils/session";
 
