@@ -13,7 +13,7 @@ describe("# RegisterPage", () => {
     const { getByTestId, getByText } = render(<RegisterPage />);
 
     expect(getByTestId("register-form")).toBeInTheDocument();
-    expect(getByText("开始验证")).toBeInTheDocument();
+    expect(getByText("Verify")).toBeInTheDocument();
   });
 
   it.skip("should loading after click register button", async () => {
@@ -30,7 +30,7 @@ describe("# RegisterPage", () => {
     });
 
     await waitFor(() => {
-      expect(getByText("正在注册...")).toBeInTheDocument();
+      expect(getByText("Loading")).toBeInTheDocument();
     }, { timeout: 1000000 });
   });
 

@@ -180,7 +180,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       </Form.Item>
       {!isLoading && !isError && isLogin && (
         <div className="text-lg mt-6 text-left">
-          Or <a href="/register">Sign up</a>
+          Or <a href="/register">sign up</a>
         </div>
       )}
       {

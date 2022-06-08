@@ -13,7 +13,7 @@ export const LoginRegisterFormRules: ILoginRegisterFormRule = {
     {
       type: "string",
       min: 6,
-      message: "length of user name should more than 6"
+      message: "Length of user name should more than 6"
     }
   ],
   passwordRules: [{ required: true, message: "Password cannot be empty" }],

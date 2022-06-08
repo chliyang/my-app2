@@ -18,7 +18,7 @@ describe("# loginRegisterForm", () => {
 
     expect(getByTestId("user-name")).toBeInTheDocument();
     expect(getByTestId("password")).toBeInTheDocument();
-    expect(getByText("登 录")).toBeInTheDocument();
+    expect(getByText("Login")).toBeInTheDocument();
   });
 
   it("should render other input when show flag is true", () => {
@@ -56,11 +56,11 @@ describe("# loginRegisterForm", () => {
 
     await waitFor(
       () => {
-        expect(getByText("用户名长度不小于6")).toBeInTheDocument();
+        expect(getByText("Length of user name should more than 6")).toBeInTheDocument();
       }
     );
-    expect(getByText("两次输入的密码不一致!")).toBeInTheDocument();
-    expect(getByText("请输入正确的邮箱地址！")).toBeInTheDocument();
-    expect(getByText("请输入六位验证码")).toBeInTheDocument();
+    expect(getByText("The entered passwords are inconsistent")).toBeInTheDocument();
+    expect(getByText("Please enter valid email address")).toBeInTheDocument();
+    expect(getByText("The length of verify code is 6")).toBeInTheDocument();
   });
 });
