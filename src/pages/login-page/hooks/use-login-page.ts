@@ -7,6 +7,7 @@ import { authenticatedSuccess } from "../../../utils/session";
 const useLoginPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const history = useHistory();
 
   const handleLogin = (data: ISubmitData) => {
@@ -22,7 +23,10 @@ const useLoginPage = () => {
         // TODO: 应当自动刷新
         window.location.reload();
       })
-      .catch(() => {
+      .catch((e) => {
+        e.response.status === 400
+          ? setErrorMessage(e.response.data.message)
+          : setErrorMessage(e.message);
         setIsLoading(false);
         setIsError(true);
       });
@@ -31,6 +35,7 @@ const useLoginPage = () => {
   return {
     isLoading,
     isError,
+    errorMessage,
     handleLogin
   };
 };

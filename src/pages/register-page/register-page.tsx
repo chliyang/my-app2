@@ -7,6 +7,7 @@ const RegisterPage: React.FC = () => {
   const {
     isError,
     isLoading,
+    errorMessage,
     handleRegister,
     isEmailVerifyStep,
     handleEmailVerify
@@ -16,6 +17,7 @@ const RegisterPage: React.FC = () => {
       {isEmailVerifyStep
         ? <EmailVerifyForm isLoading={isLoading} isError={isError} handleEmailVerify={handleEmailVerify} />
         : <LoginRegisterForm
+          errorMessage={errorMessage}
           isLoading={isLoading}
           isError={isError}
           inputClassName="h-10"

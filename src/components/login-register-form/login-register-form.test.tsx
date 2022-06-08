@@ -6,6 +6,7 @@ describe("# loginRegisterForm", () => {
   const mockHandleSubmit = jest.fn();
   const mockLoginRegisterFormProps: ILoginRegisterFormProps = {
     isLoading: false,
+    errorMessage: "",
     isError: false,
     handleSubmit: mockHandleSubmit()
   };

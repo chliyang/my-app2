@@ -21,6 +21,7 @@ export interface ISubmitData {
 export interface ILoginRegisterFormProps {
   isLoading: boolean;
   isError: boolean;
+  errorMessage: string;
   handleSubmit: (data: ISubmitData) => void;
   title?: string;
   isLogin?: boolean;
@@ -43,6 +44,7 @@ interface IFormItemConfig {
 const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
   title,
   isLoading,
+  errorMessage,
   isError,
   isLogin = false,
   handleSubmit,
@@ -188,7 +190,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
         </div>
       }
       {
-        isError && <div className="text-lg text-red-500 -mt-2">请求错误，请稍后重试</div>
+        isError && <div className="text-lg text-red-500 -mt-2">{errorMessage}</div>
       }
     </Form>
   );
