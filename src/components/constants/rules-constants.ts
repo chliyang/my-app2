@@ -9,42 +9,48 @@ interface ILoginRegisterFormRule {
 }
 export const LoginRegisterFormRules: ILoginRegisterFormRule = {
   userNameRules: [
-    { required: true, message: "请输入用户名!" },
-    { type: "string", min: 6, message: "用户名长度不小于6" }
+    { required: true, message: "User name cannot be empty" },
+    {
+      type: "string",
+      min: 6,
+      message: "length of user name should more than 6"
+    }
   ],
-  passwordRules: [{ required: true, message: "请输入密码!" }],
+  passwordRules: [{ required: true, message: "Password cannot be empty" }],
   confirmPasswordRules: [
     {
       required: true,
-      message: "请二次确认您的密码"
+      message: "Confirm password cannot be empty"
     },
     ({ getFieldValue }) => ({
       validator(_, value) {
         if (!value || getFieldValue("password") === value) {
           return Promise.resolve();
         }
-        return Promise.reject(new Error("两次输入的密码不一致!"));
+        return Promise.reject(
+          new Error("The entered passwords are inconsistent")
+        );
       }
     })
   ],
   emailRules: [
     {
       type: "email",
-      message: "请输入正确的邮箱地址！"
+      message: "Please enter valid email address"
     },
     {
       required: true,
-      message: "请输入邮箱地址！"
+      message: "Email address cannot be empty"
     }
   ],
   verifyCodeRules: [
     {
       required: true,
-      message: "请输入您的验证码"
+      message: "Verify code cannot be empty"
     },
     {
       len: 6,
-      message: "请输入六位验证码"
+      message: "The length of verify code is 6"
     }
   ]
 };

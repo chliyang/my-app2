@@ -21,7 +21,7 @@ const HomePage = (props: any) => {
         type="primary"
         block
       >
-        退出登录
+        Log out
       </Button>
     </div>
   );

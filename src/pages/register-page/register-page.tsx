@@ -21,7 +21,7 @@ const RegisterPage: React.FC = () => {
           isLoading={isLoading}
           isError={isError}
           inputClassName="h-10"
-          title="注册信息填写"
+          title="Registration Information"
           handleSubmit={handleRegister}
         />}
     </div>

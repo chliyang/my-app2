@@ -31,7 +31,7 @@ const EmailVerifyForm: React.FC<IEmailVerifyFormProps> = ({ isLoading, isError, 
           data-testid="verify-email"
           className="h-16 w-full text-lg"
           prefix={<MailOutlined className="site-form-item-icon" />}
-          placeholder="请输入您的邮箱"
+          placeholder="Please enter email address for verification"
           onChange={(e) => setEmail(e.target.value)}
         />
       </Form.Item>
@@ -47,7 +47,7 @@ const EmailVerifyForm: React.FC<IEmailVerifyFormProps> = ({ isLoading, isError, 
           }
           className="login-form-button w-40 h-10 text-lg"
         >
-          开始验证
+          Verify
         </Button>)}
       </Form.Item>
       {isError && <div className="text-lg text-red-500 -mt-2">请求错误，请稍后重试</div>}

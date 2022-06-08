@@ -61,7 +61,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       testId: "user-name",
       type: "",
       prefix: <UserOutlined className="site-form-item-icon" />,
-      placeholder: "请输入用户名",
+      placeholder: "Please enter user name",
       onChange: (e) => setSubmitData((preState) => ({
         ...preState,
         name: e.target.value
@@ -76,7 +76,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       testId: "password",
       type: "password",
       prefix: <LockOutlined className="site-form-item-icon" />,
-      placeholder: "请输入密码",
+      placeholder: "Please enter password",
       onChange: (e) => setSubmitData((preState) => ({
         ...preState,
         password: e.target.value
@@ -91,7 +91,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       testId: "password-confirm",
       type: "password",
       prefix: <LockOutlined className="site-form-item-icon" />,
-      placeholder: "请二次确认您的密码"
+      placeholder: "Please confirm password"
     },
     {
       alwaysShow: false,
@@ -102,7 +102,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       testId: "email",
       type: "",
       prefix: <MailOutlined className="site-form-item-icon" />,
-      placeholder: "请输入邮箱地址",
+      placeholder: "Please enter email address",
       onChange: (e) => setSubmitData((preState) => ({
         ...preState,
         email: e.target.value
@@ -117,7 +117,7 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
       testId: "verify-code",
       type: "",
       prefix: <NumberOutlined className="site-form-item-icon" />,
-      placeholder: "请输入邮箱验证所得验证码",
+      placeholder: "Please enter verification code obtained from email",
       onChange: (e) => setSubmitData((preState) => ({
         ...preState,
         verifyCode: e.target.value
@@ -174,19 +174,18 @@ const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({
           }
         >
           {isLogin
-            ? "登 录"
-            : "立即注册"}
+            ? "Login"
+            : "Register"}
         </Button>)}
       </Form.Item>
       {!isLoading && !isError && isLogin && (
         <div className="text-lg mt-6 text-left">
-          或者 <a href="/register">立即注册!</a>
+          Or <a href="/register">Sign up</a>
         </div>
       )}
       {
-        isLoading && <div className="text-lg text-blue-500 -mt-2">{isLogin
-          ? "正在登录..."
-          : "正在注册..."}
+        isLoading && <div className="text-lg text-blue-500 -mt-2">
+          Loading
         </div>
       }
       {

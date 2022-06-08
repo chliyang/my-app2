@@ -10,7 +10,7 @@ Mock.mock("/users/token", "post", (req: any) => {
     return {
       code: 0,
       data: {
-        name: "张三",
+        name: "admin200",
         phone: 18759394606,
         userId: Date.now().toString().slice(-6),
         age: 20,
@@ -24,7 +24,7 @@ Mock.mock("/users/token", "post", (req: any) => {
     return {
       code: 500,
       data: {},
-      msg: "用户名或密码错误"
+      msg: "Wrong user name or password"
     };
   }
 });
@@ -34,13 +34,13 @@ Mock.mock("/users/email", "get", (req: any) => {
   if (body.email) {
     return {
       code: 0,
-      msg: "验证成功，请前往邮箱查看验证码"
+      msg: "Verify successfully"
     };
   } else {
     return {
       code: 500,
       data: {},
-      msg: "请重试"
+      msg: "Please try again"
     };
   }
 });
@@ -74,7 +74,7 @@ Mock.mock("/users", "post", (req: any) => {
     return {
       code: 500,
       data: {},
-      msg: "信息有误，请重新注册！"
+      msg: "Error, please try again"
     };
   }
 });
