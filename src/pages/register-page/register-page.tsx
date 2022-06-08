@@ -15,7 +15,7 @@ const RegisterPage: React.FC = () => {
   return (
     <div data-testid="register-form" className="box-border min-w-max min-h-min w-1/2 lg:w-1/4 bg-white shadow-lg p-10 text-lg">
       {isEmailVerifyStep
-        ? <EmailVerifyForm isLoading={isLoading} isError={isError} handleEmailVerify={handleEmailVerify} />
+        ? <EmailVerifyForm isLoading={isLoading} isError={isError} errorMessage={errorMessage} handleEmailVerify={handleEmailVerify} />
         : <LoginRegisterForm
           errorMessage={errorMessage}
           isLoading={isLoading}

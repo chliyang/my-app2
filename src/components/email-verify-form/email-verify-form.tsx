@@ -8,10 +8,11 @@ import { LoginRegisterFormRules } from "../constants/rules-constants";
 interface IEmailVerifyFormProps {
   isLoading: boolean,
   isError: boolean,
+  errorMessage: string,
   handleEmailVerify: (email: string) => void,
 }
 
-const EmailVerifyForm: React.FC<IEmailVerifyFormProps> = ({ isLoading, isError, handleEmailVerify }) => {
+const EmailVerifyForm: React.FC<IEmailVerifyFormProps> = ({ isLoading, isError, errorMessage, handleEmailVerify }) => {
   const [email, setEmail] = useState<string>("");
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
@@ -50,7 +51,7 @@ const EmailVerifyForm: React.FC<IEmailVerifyFormProps> = ({ isLoading, isError, 
           Verify
         </Button>)}
       </Form.Item>
-      {isError && <div className="text-lg text-red-500 -mt-2">请求错误，请稍后重试</div>}
+      {isError && <div className="text-lg text-red-500 -mt-2">{errorMessage}</div>}
     </Form >
   );
 };
