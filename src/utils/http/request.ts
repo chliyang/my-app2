@@ -34,7 +34,7 @@ server.interceptors.response.use(
     if (data.code === 0 || data.code === "0") {
       return response;
     } else {
-      return Promise.reject(data.msg);
+      return Promise.reject(data.error);
     }
   },
   (error: AxiosError<any>) => {

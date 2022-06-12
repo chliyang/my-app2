@@ -18,13 +18,18 @@ Mock.mock("/users/token", "post", (req: any) => {
           // eslint-disable-next-line max-len
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjI0MDA3MTYwLCJleHAiOjE2MjQ2MTE5NjB9.s403g3cl0L0IDvrkQb25B5wOu4wDJmAr4_KHHLmT6hg"
       },
-      msg: "success"
+      error: null
     };
   } else {
     return {
-      code: 500,
+      code: 400,
       data: {},
-      msg: "Wrong user name or password"
+      error: {
+        response: {
+          data: { message: "Wrong UserName or Password!" },
+          status: 400
+        }
+      }
     };
   }
 });

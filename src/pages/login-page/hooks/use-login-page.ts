@@ -24,11 +24,11 @@ const useLoginPage = () => {
         window.location.reload();
       })
       .catch((e) => {
-        e.response.status === 400
-          ? setErrorMessage(e.response.data.message)
-          : setErrorMessage(e.message);
         setIsLoading(false);
         setIsError(true);
+        e.response && e.response.status === 400
+          ? setErrorMessage(e.response.data.message)
+          : setErrorMessage(e.message);
       });
   };
 
