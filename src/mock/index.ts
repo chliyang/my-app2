@@ -83,3 +83,14 @@ Mock.mock("/users", "post", (req: any) => {
     };
   }
 });
+
+Mock.mock("/users/info", "get", (req: any) => {
+  return {
+    code: 0,
+    data: {
+      rolesId: [1],
+      name: "chengli",
+      id: 0
+    }
+  };
+});

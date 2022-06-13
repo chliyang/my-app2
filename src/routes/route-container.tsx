@@ -1,13 +1,13 @@
-import { Redirect, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import React from "react";
-import HomePage from "../pages/home-page/home-page";
 import PrivateRoute from "./private-route";
+import useRouters from "./hooks/use-routers";
 
-const RouteContainer = (props: any) => {
+const RouteContainer = () => {
+  const { visitableRoutes } = useRouters();
   return (
     <Switch>
-      <PrivateRoute path="/home" exact auth component={HomePage} />
-      <Redirect exact to="/home" />
+      {visitableRoutes.map((route) => (<PrivateRoute key={route.path} path={route.path} exact auth component={route.component} />))}
     </Switch>
   );
 };
