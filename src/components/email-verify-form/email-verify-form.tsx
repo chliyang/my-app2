@@ -51,7 +51,7 @@ const EmailVerifyForm: React.FC<IEmailVerifyFormProps> = ({ isLoading, isError, 
           Verify
         </Button>)}
       </Form.Item>
-      {isError && <div className="text-lg text-red-500 -mt-2">{errorMessage}</div>}
+      {isError && <div data-testid="verify-error" className="text-lg text-red-500 -mt-2">{errorMessage}</div>}
     </Form >
   );
 };

@@ -8,12 +8,49 @@ jest.mock("react-router-dom", () => ({
   })
 }));
 
+const mockHttp = jest.fn();
+jest.mock("../../../utils/http/request", () => () => mockHttp());
+
 describe("# RegisterPage", () => {
   it("should render initial register page", () => {
     const { getByTestId, getByText } = render(<RegisterPage />);
 
     expect(getByTestId("register-form")).toBeInTheDocument();
     expect(getByText("Verify")).toBeInTheDocument();
+  });
+
+  it("should jump to register step, when verify success", async () => {
+    mockHttp.mockImplementation(() =>
+      Promise.resolve({
+        data: {}
+      })
+    );
+    const { getByTestId, getByText } = render(<RegisterPage />);
+
+    act(() => {
+      fireEvent.change(getByTestId("verify-email"), { target: { value: "123@345.com" } });
+      fireEvent.click(getByText("Verify"));
+    });
+
+    await waitFor(() => {
+      expect(getByTestId("user-name")).toBeInTheDocument();
+    });
+  });
+
+  it("should show error message, when verify failed", async () => {
+    mockHttp.mockImplementation(() =>
+      Promise.reject(new Error("Error"))
+    );
+    const { getByTestId, getByText } = render(<RegisterPage />);
+
+    act(() => {
+      fireEvent.change(getByTestId("verify-email"), { target: { value: "123@345.com" } });
+      fireEvent.click(getByText("Verify"));
+    });
+
+    await waitFor(() => {
+      expect(getByTestId("verify-error")).toBeInTheDocument();
+    });
   });
 
   it.skip("should loading after click register button", async () => {
