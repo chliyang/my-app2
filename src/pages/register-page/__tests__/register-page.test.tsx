@@ -2,9 +2,10 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act } from "react-test-renderer";
 import RegisterPage from "../register-page";
 
+const mockPush = jest.fn();
 jest.mock("react-router-dom", () => ({
   useHistory: () => ({
-    push: jest.fn()
+    push: mockPush
   })
 }));
 
@@ -85,21 +86,37 @@ describe("# RegisterPage", () => {
     }, { timeout: 1000000 });
   });
 
-  it.skip("should register success, when validate success", async () => {
+  it("should register success, when validate success", async () => {
+    mockHttp.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {}
+      })
+    ).mockImplementationOnce(() => Promise.resolve({
+      data: {}
+    }));
     const { getByTestId, getByText } = render(<RegisterPage />);
+
+    act(() => {
+      fireEvent.change(getByTestId("verify-email"), { target: { value: "123@345.com" } });
+      fireEvent.click(getByText("Verify"));
+    });
+
+    await waitFor(() => {
+      expect(getByTestId("user-name")).toBeInTheDocument();
+    });
 
     act(() => {
       fireEvent.change(getByTestId("user-name"), { target: { value: "123434" } });
       fireEvent.change(getByTestId("password"), { target: { value: "1234" } });
       fireEvent.change(getByTestId("password-confirm"), { target: { value: "1234" } });
       fireEvent.change(getByTestId("email"), { target: { value: "1234@234.com" } });
-      fireEvent.change(getByTestId("phone"), { target: { value: "123423" } });
+      fireEvent.change(getByTestId("verify-code"), { target: { value: "123456" } });
 
       fireEvent.click(getByTestId("submit-button"));
     });
 
     await waitFor(() => {
-      expect(getByText("注册成功, 为您自动跳转登录页面")).toBeInTheDocument();
+      expect(mockPush).toHaveBeenCalled();
     }, { timeout: 1000000 });
   });
 });
