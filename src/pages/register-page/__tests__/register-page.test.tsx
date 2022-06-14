@@ -53,15 +53,29 @@ describe("# RegisterPage", () => {
     });
   });
 
-  it.skip("should loading after click register button", async () => {
+  it("should loading after click register button", async () => {
+    mockHttp.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {}
+      })
+    );
     const { getByTestId, getByText } = render(<RegisterPage />);
+
+    act(() => {
+      fireEvent.change(getByTestId("verify-email"), { target: { value: "123@345.com" } });
+      fireEvent.click(getByText("Verify"));
+    });
+
+    await waitFor(() => {
+      expect(getByTestId("user-name")).toBeInTheDocument();
+    });
 
     act(() => {
       fireEvent.change(getByTestId("user-name"), { target: { value: "123434" } });
       fireEvent.change(getByTestId("password"), { target: { value: "1234" } });
       fireEvent.change(getByTestId("password-confirm"), { target: { value: "1234" } });
       fireEvent.change(getByTestId("email"), { target: { value: "1234@234.com" } });
-      fireEvent.change(getByTestId("phone"), { target: { value: "123423" } });
+      fireEvent.change(getByTestId("verify-code"), { target: { value: "123456" } });
 
       fireEvent.click(getByTestId("submit-button"));
     });
