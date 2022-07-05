@@ -1,26 +1,13 @@
-import { LogoutOutlined, PictureOutlined, ProfileOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { PictureOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import React from "react";
-import { useHistory } from "react-router-dom";
-import { logout } from "../../utils/session";
+import HeaderList from "./components/header-list";
 
 const HomePage: React.FC = () => {
-  const history = useHistory();
-
-  const handleClick = () => {
-    logout();
-    history.push("/login");
-    window.location.reload();
-  };
-
   return (
     <div className="h-full overflow-auto w-980px mx-auto">
       <header className="mt-10">
-        <ul className="list-none flex flex-row-reverse space-x-8 space-x-reverse">
-          <li className="flex text-lg"><LogoutOutlined className="flex items-center" /><span onClick={handleClick}>Logout</span></li>
-          <li className="flex text-lg"><ShoppingCartOutlined className="flex items-center" /><span>Shopping cart</span></li>
-          <li className="flex text-lg"><ProfileOutlined className="flex items-center" /><span>Order</span></li>
-        </ul>
+        <HeaderList />
         <div className="text-2xl font-medium">Buy and sell trading platform</div>
       </header>
 
