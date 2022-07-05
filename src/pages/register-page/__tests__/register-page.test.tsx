@@ -13,6 +13,16 @@ const mockHttp = jest.fn();
 jest.mock("../../../utils/http/request", () => () => mockHttp());
 
 describe("# RegisterPage", () => {
+  let originConsoleError: any;
+  beforeAll(() => {
+    originConsoleError = console.error;
+    console.error = jest.fn();
+  });
+
+  afterAll(() => {
+    console.error = originConsoleError;
+  });
+
   it("should render initial register page", () => {
     const { getByTestId, getByText } = render(<RegisterPage />);
 
