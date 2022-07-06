@@ -14,7 +14,7 @@ import RegisterPage from "../pages/register-page/register-page";
 const Root = () => {
   return (
     <div className="bg-blue-bg bg-cover bg-center h-full w-full flex justify-center items-center">
-      <Router basename={"example"}>
+      <Router>
         <Switch>
           <Route path="/register" component={RegisterPage} />
           <Route
