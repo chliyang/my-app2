@@ -2,6 +2,7 @@ import { PictureOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import React from "react";
 import HeaderList from "./components/header-list";
+import Menu from "./components/menu";
 
 const HomePage: React.FC = () => {
   return (
@@ -10,15 +11,7 @@ const HomePage: React.FC = () => {
         <HeaderList />
         <div className="text-2xl font-medium">Buy and sell trading platform</div>
       </header>
-
-      <menu className="w-full flex flex-row space-x-10 bg-white py-4 text-lg">
-        <div className="px-4">首页</div>
-        <div className="px-4">物品提供</div>
-        <div className="px-4">物品征求</div>
-        <div className="px-4">讨论区</div>
-        <div className="px-4">关于我们</div>
-      </menu>
-
+      <Menu />
       <main className="flex mb-8 bg-white">
         <div className="w-3/4 border-solid border-gray-200">
           <div className="flex w-full py-8  bg-blue-50 justify-center">

@@ -1,3 +1,4 @@
+import React from "react";
 import { isAuthenticated } from "./../utils/session";
 import LoginPage from "../pages/login-page/login-page";
 import RegisterPage from "../pages/register-page/register-page";
@@ -5,7 +6,7 @@ import HomePage from "../pages/home-page/home-page";
 
 interface IRouteType {
   path: string;
-  component: any;
+  component: React.ReactNode;
   isAuthenticated: boolean;
   rolesId: Array<number>;
 }
@@ -24,6 +25,30 @@ export const routes: Array<IRouteType> = [
   },
   {
     path: "/home",
+    component: HomePage,
+    isAuthenticated: isAuthenticated(),
+    rolesId: [0, 1, 2]
+  },
+  {
+    path: "/sell",
+    component: HomePage,
+    isAuthenticated: isAuthenticated(),
+    rolesId: [0, 1, 2]
+  },
+  {
+    path: "/buy",
+    component: HomePage,
+    isAuthenticated: isAuthenticated(),
+    rolesId: [0, 1, 2]
+  },
+  {
+    path: "/forum",
+    component: HomePage,
+    isAuthenticated: isAuthenticated(),
+    rolesId: [0, 1, 2]
+  },
+  {
+    path: "/about",
     component: HomePage,
     isAuthenticated: isAuthenticated(),
     rolesId: [0, 1, 2]
