@@ -5,7 +5,7 @@ import HeaderList from "./components/header-list";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="h-full overflow-auto w-980px min-width-980 mx-auto shrink-0">
+    <div className="h-full overflow-auto no-scrollbar w-980px min-width-980 mx-auto shrink-0">
       <header className="mt-10">
         <HeaderList />
         <div className="text-2xl font-medium">Buy and sell trading platform</div>
