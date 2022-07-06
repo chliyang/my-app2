@@ -13,7 +13,7 @@ const RegisterPage: React.FC = () => {
     handleEmailVerify
   } = useRegisterPage();
   return (
-    <div data-testid="register-form" className="box-border min-w-max min-h-min w-1/2 lg:w-1/4 bg-white shadow-lg p-10 text-lg">
+    <div data-testid="register-form" className="box-border min-width-500 w-1/2 lg:w-1/4 bg-white shadow-lg p-10 text-lg">
       {isEmailVerifyStep
         ? <EmailVerifyForm isLoading={isLoading} isError={isError} errorMessage={errorMessage} handleEmailVerify={handleEmailVerify} />
         : <LoginRegisterForm

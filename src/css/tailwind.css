@@ -5,3 +5,11 @@
 .border-bottom-default {
   border-bottom: 1px solid gray;
 }
+
+.min-width-980 {
+  min-width: 980px;
+}
+
+.min-width-500 {
+  min-width: 500px;
+}
