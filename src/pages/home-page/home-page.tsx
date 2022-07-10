@@ -2,6 +2,7 @@ import { Input } from "antd";
 import React from "react";
 import HeaderList from "./components/header-list";
 import Menu from "./components/menu";
+import ProductCLasses from "./components/product-categories";
 import ProductList from "./components/product-list";
 
 const FuncSection: React.FC<{ label: string }> = ({ label, children }) => {
@@ -30,20 +31,12 @@ const HomePage: React.FC = () => {
           </div>
 
           <FuncSection label="物品类别">
-            <div className="m-8 grid grid-cols-4 gap-10 justify-items-center">
-              <div>食品</div>
-              <div>服装</div>
-              <div>家具</div>
-              <div>电器</div>
-              <div>化妆品</div>
-              <div>保健品</div>
-              <div>电子产品</div>
-              <div>清洁用具</div>
-              <div>洗浴用品</div>
-            </div>
+            {/* TODO: 需要加入种类查询数据作为props */}
+            <ProductCLasses />
           </FuncSection>
 
           <FuncSection label="商品列表">
+            {/* TODO: 需要加入所有商品查询数据作为props */}
             <ProductList />
           </FuncSection>
         </div>
