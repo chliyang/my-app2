@@ -1,58 +1,29 @@
 import React from "react";
+import PromotionListItem from "./promotion-list-Item";
 
 const PromotionList: React.FC = () => {
+  // TODO: 推广列表数据应该来自于查询，然后遍历
   return (
     <div className="text-center bg-blue-50">
-      <div className="bg-blue-200 text-base font-medium tracking-widest p-2.5">物品推广</div>
+      <div className="bg-blue-200 text-base font-medium tracking-widest p-2.5">
+        物品推广
+      </div>
       <div className="p-4 text-left">
-        <div className="p-1 mb-3 rounded-md drop-shadow-md bg-white">
-          <div className="w-full flex items-center">
-            <div className="h-20 w-20 border-solid border-gray-200 p-1">
-              <img src={require("../../../assets/light.jpg")} alt="Light" className="w-full" />
-            </div>
-            <div className="flex-1 overflow-hidden ml-2.5">
-              <div className="truncate">物品名称sdfsdfsdfsdfsdfsdfsdf</div>
-              <div className="truncate">物品价格</div>
-              <div className="truncate">物品分类</div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 justify-items-center mt-2.5">
-            <button className="bg-blue-300 border-blue-300">详情</button>
-            <button className="bg-blue-300 border-blue-300">收藏</button>
-          </div>
-        </div>
-        <div className="p-1 mb-3 rounded-md drop-shadow-md bg-white">
-          <div className="w-full flex items-center">
-            <div className="h-20 w-20 border-solid border-gray-200 p-1">
-              <img src={require("../../../assets/light.jpg")} alt="Light" className="w-full" />
-            </div>
-            <div className="flex-1 overflow-hidden ml-2.5">
-              <div className="truncate">物品名称sdfsdfsdfsdfsdfsdfsdf</div>
-              <div className="truncate">物品价格</div>
-              <div className="truncate">物品分类</div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 justify-items-center mt-2.5">
-            <button className="bg-blue-300 border-blue-300">详情</button>
-            <button className="bg-blue-300 border-blue-300">收藏</button>
-          </div>
-        </div>
-        <div className="p-1 mb-3 rounded-md drop-shadow-md bg-white">
-          <div className="w-full flex items-center">
-            <div className="h-20 w-20 border-solid border-gray-200 p-1">
-              <img src={require("../../../assets/light.jpg")} alt="Light" className="w-full" />
-            </div>
-            <div className="flex-1 overflow-hidden ml-2.5">
-              <div className="truncate">物品名称sdfsdfsdfsdfsdfsdfsdf</div>
-              <div className="truncate">物品价格</div>
-              <div className="truncate">物品分类</div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 justify-items-center mt-2.5">
-            <button className="bg-blue-300 border-blue-300">详情</button>
-            <button className="bg-blue-300 border-blue-300">收藏</button>
-          </div>
-        </div>
+        <PromotionListItem
+          productName="物品名称sdfsdfsdfsdfsdfsdfsdf"
+          productPrice={0}
+          category="食物"
+        />
+        <PromotionListItem
+          productName="物品名称sdfsdfsdfsdfsdfsdfsdf"
+          productPrice={0}
+          category="食物"
+        />
+        <PromotionListItem
+          productName="物品名称sdfsdfsdfsdfsdfsdfsdf"
+          productPrice={0}
+          category="食物"
+        />
       </div>
     </div>
   );
