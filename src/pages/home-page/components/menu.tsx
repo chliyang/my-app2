@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface IMenuItem {
@@ -30,10 +30,16 @@ const MenuItems: IMenuItem[] = [
 ];
 
 const Menu: React.FC = () => {
+  const [currentLink, setCurrentLink] = useState<IMenuItem>(MenuItems[0]);
   return (
     <menu className="w-full flex flex-row space-x-10 bg-white py-4 text-lg">
       {MenuItems.map((menuItem) => (
-        <Link key={menuItem.value} to={menuItem.href} className="px-4">
+        <Link
+          key={menuItem.value}
+          to={menuItem.href}
+          onClick={() => setCurrentLink(menuItem)}
+          className={`px-4 ${currentLink?.href === menuItem.href ? "text-blue-600 font-medium" : ""}`}
+        >
           {menuItem.value}
         </Link>
       ))}
