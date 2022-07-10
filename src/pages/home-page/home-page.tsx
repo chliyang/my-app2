@@ -4,6 +4,17 @@ import React from "react";
 import HeaderList from "./components/header-list";
 import Menu from "./components/menu";
 
+const FuncSection: React.FC<{ label: string }> = ({ label, children }) => {
+  return (
+    <div className="mt-4">
+      <div className="w-auto inline-block drop-shadow-md text-lg p-3 px-10 bg-blue-50">
+        {label}
+      </div>
+      {children}
+    </div>
+  );
+};
+
 const HomePage: React.FC = () => {
   return (
     <div className="h-full overflow-auto no-scrollbar w-980px min-width-980 mx-auto shrink-0">
@@ -18,8 +29,7 @@ const HomePage: React.FC = () => {
             <Input.Search className="w-3/4" addonBefore="物品搜索" />
           </div>
 
-          <div className="mt-4">
-            <div className="w-auto inline-block drop-shadow-md text-lg p-3 px-10 bg-blue-50">物品类别</div>
+          <FuncSection label="物品类别">
             <div className="m-8 grid grid-cols-4 gap-10 justify-items-center">
               <div>食品</div>
               <div>服装</div>
@@ -31,11 +41,10 @@ const HomePage: React.FC = () => {
               <div>清洁用具</div>
               <div>洗浴用品</div>
             </div>
-          </div>
+          </FuncSection>
 
-          <div className="pb-8">
-            <div className="w-auto inline-block drop-shadow-md text-lg p-3 px-10 bg-blue-50">商品列表</div>
-            <div className="grid grid-cols-1 divide-y-1 mx-8">
+          <FuncSection label="商品列表">
+            <div className="grid grid-cols-1 divide-y-1 mx-8 pb-8">
               <div className="flex h-20 border-bottom-default items-center ">
                 <PictureOutlined className="flex text-5xl items-center" />
                 <div className="flex-1 ml-4 font-medium">
@@ -114,7 +123,7 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </FuncSection>
         </div>
         <div className="h-full w-1/4 border-solid border-gray-300">
           <div className="text-center bg-blue-50">
