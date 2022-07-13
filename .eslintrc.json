@@ -51,6 +51,9 @@
             2,
             {
                 "ObjectExpression": 1
+            },
+            {
+                "SwitchCase": 1
             }
         ]
     }
