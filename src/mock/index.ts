@@ -94,3 +94,46 @@ Mock.mock("/users/info", "get", (req: any) => {
     }
   };
 });
+
+Mock.mock("/products", "get", (req: any) => {
+  return {
+    code: 0,
+    data: [
+      {
+        productId: "1",
+        productName: "name1",
+        productPrice: "200",
+        productImg: "light.jpg",
+        category: "food"
+      },
+      {
+        productId: "2",
+        productName: "name2",
+        productPrice: "200",
+        productImg: "light.jpg",
+        category: "food"
+      },
+      {
+        productId: "3",
+        productName: "name3",
+        productPrice: "200",
+        productImg: "light.jpg",
+        category: "food"
+      },
+      {
+        productId: "4",
+        productName: "name4",
+        productPrice: "200",
+        productImg: "light.jpg",
+        category: "food"
+      },
+      {
+        productId: "5",
+        productName: "name5",
+        productPrice: "200",
+        productImg: "light.jpg",
+        category: "food"
+      }
+    ]
+  };
+});
