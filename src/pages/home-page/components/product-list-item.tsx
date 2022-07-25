@@ -1,3 +1,4 @@
+import { InfoCircleOutlined, StarOutlined } from "@ant-design/icons";
 import React from "react";
 
 export interface IProductListItemProps {
@@ -16,9 +17,9 @@ const ProductListItem: React.FC<IProductListItemProps> = ({ productImg, productN
         <div>{productName}</div>
         <div>{`商品价格：${productPrice}（元）`}</div>
       </div>
-      <div className="flex space-y-1 flex-col">
-        <button className="bg-blue-100 border-blue-100">详情</button>
-        <button className="bg-blue-100 border-blue-100">收藏</button>
+      <div className="flex space-y-1 flex-row">
+        <button className="bg-white border-none items-center text-lg"><StarOutlined className="mt-1 mx-2" /></button>
+        <button className="bg-white border-none mx-2 items-center border-left text-lg"><InfoCircleOutlined className="mx-2" /></button>
       </div>
     </div>
   );

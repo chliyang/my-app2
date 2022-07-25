@@ -6,6 +6,10 @@
   border-bottom: 1px solid gray;
 }
 
+.border-left {
+  border-left: 1px solid gray;
+}
+
 .min-width-980 {
   min-width: 980px;
 }
