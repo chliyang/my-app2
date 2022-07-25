@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 interface IMenuItem {
   href: string;
@@ -9,27 +10,28 @@ interface IMenuItem {
 const MenuItems: IMenuItem[] = [
   {
     href: "/home",
-    value: "首页"
+    value: "home.menu_home"
   },
   {
     href: "/sell",
-    value: "物品提供"
+    value: "home.menu_sell"
   },
   {
     href: "/buy",
-    value: "物品征求"
+    value: "home.menu_buy"
   },
   {
     href: "/forum",
-    value: "讨论区"
+    value: "home.menu_forum"
   },
   {
     href: "/about",
-    value: "关于我们"
+    value: "home.menu_about"
   }
 ];
 
 const Menu: React.FC = () => {
+  const { t } = useTranslation();
   const [currentLink, setCurrentLink] = useState<IMenuItem>(MenuItems[0]);
   return (
     <menu className="w-full flex flex-row space-x-10 bg-white py-4 text-lg">
@@ -40,7 +42,7 @@ const Menu: React.FC = () => {
           onClick={() => setCurrentLink(menuItem)}
           className={`px-4 ${currentLink?.href === menuItem.href ? "text-blue-600 font-medium" : ""}`}
         >
-          {menuItem.value}
+          {t(menuItem.value)}
         </Link>
       ))}
     </menu>

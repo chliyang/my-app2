@@ -1,0 +1,15 @@
+{
+  "home": {
+      "header_list_logout": "退出",
+      "header_list_cart": "购物车",
+      "header_list_order": "我的订单",
+      "menu_home": "首页",
+      "menu_sell": "物品提供",
+      "menu_buy": "物品征求",
+      "menu_forum": "讨论区",
+      "menu_about": "关于我们",
+      "product_category": "商品类别",
+      "product_list": "商品列表",
+      "product_search": "物品搜索"
+  }
+}

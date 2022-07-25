@@ -4,6 +4,7 @@ import Root from "./routes/root";
 import reportWebVitals from './reportWebVitals';
 import "./index.css";
 import "./mock";
+import './i18n/config';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

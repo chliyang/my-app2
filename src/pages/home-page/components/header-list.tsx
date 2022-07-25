@@ -2,6 +2,7 @@ import { LogoutOutlined, ProfileOutlined, ShoppingCartOutlined } from "@ant-desi
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../../utils/session";
+import { useTranslation } from 'react-i18next';
 
 interface IListItem {
   icon: React.ReactNode;
@@ -11,6 +12,8 @@ interface IListItem {
 
 const HeaderList: React.FC = () => {
   const history = useHistory();
+  const { t } = useTranslation();
+
   const handleLogout = () => {
     logout();
     history.push("/login");
@@ -19,17 +22,17 @@ const HeaderList: React.FC = () => {
   const HeaderListItems: IListItem[] = [
     {
       icon: <LogoutOutlined className="flex items-center" />,
-      description: "Logout",
+      description: "home.header_list_logout",
       onClick: handleLogout
     },
     {
       icon: <ShoppingCartOutlined className="flex items-center" />,
-      description: "Shopping cart",
+      description: "home.header_list_cart",
       onClick: () => { }
     },
     {
       icon: <ProfileOutlined className="flex items-center" />,
-      description: "Order",
+      description: "home.header_list_order",
       onClick: () => { }
     }
   ];
@@ -43,7 +46,7 @@ const HeaderList: React.FC = () => {
           onClick={listItem.onClick}
         >
           {listItem.icon}
-          <span> {listItem.description}</span>
+          <span> {t(listItem.description)}</span>
         </li>
       ))}
     </ul>
