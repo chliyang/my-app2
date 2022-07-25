@@ -16,6 +16,9 @@
       "side_introduction_message": "您可以发布任何不需要的，但是可以重复使用的物品（除限制物品以外）到本平台进行售卖，也可在本网站搜索您想要购买的物品进行购买。",
       "side_introduction_button_text": "如何使用本网站",
       "side_message_title": "最新消息",
-      "side_message_button_text": "更多消息"
+      "side_message_button_text": "更多消息",
+      "side_promotion_title": "物品推广",
+      "side_promotion_product_price": "商品价格：¥{{price}}",
+      "side_promotion_product_category": "物品分类：{{category}}"
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export interface IPromotionListItemProps {
   productName: string;
@@ -11,6 +12,7 @@ const PromotionListItem: React.FC<IPromotionListItemProps> = ({
   productPrice,
   category
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="p-1 mb-3 rounded-md drop-shadow-md bg-white">
       <div className="w-full flex items-center">
@@ -23,8 +25,12 @@ const PromotionListItem: React.FC<IPromotionListItemProps> = ({
         </div>
         <div className="flex-1 overflow-hidden ml-2.5">
           <div className="truncate">{productName}</div>
-          <div className="truncate">物品价格：{productPrice}（元）</div>
-          <div className="truncate">物品分类：{category}</div>
+          <div className="truncate">
+            {t("home.side_promotion_product_price", { price: productPrice })}
+          </div>
+          <div className="truncate">
+            {t("home.side_promotion_product_category", { category: category })}
+          </div>
         </div>
       </div>
       <div className="grid grid-cols-2 justify-items-center mt-2.5">
