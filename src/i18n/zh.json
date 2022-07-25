@@ -8,6 +8,8 @@
       "menu_buy": "物品征求",
       "menu_forum": "讨论区",
       "menu_about": "关于我们",
+      "tile_image": "商品图片",
+      "tile_description": "商品价格：{{price}}（元）",
       "product_category": "商品类别",
       "product_list": "商品列表",
       "product_search": "物品搜索"
