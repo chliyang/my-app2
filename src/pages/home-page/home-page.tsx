@@ -29,9 +29,6 @@ const HomePage: React.FC = () => {
         <Menu />
         <main className="flex mb-8 bg-white">
           <div className="w-3/4 border-solid border-gray-200">
-            <div className="flex w-full py-8  bg-blue-50 justify-center">
-              <Input.Search className="w-3/4" addonBefore="物品搜索" />
-            </div>
 
             <FuncSection label="物品类别">
               {/* TODO: 需要加入种类查询数据作为props */}
@@ -39,7 +36,9 @@ const HomePage: React.FC = () => {
             </FuncSection>
 
             <FuncSection label="商品列表">
-              {/* TODO: 需要加入所有商品查询数据作为props */}
+              <div className="flex w-full py-3  bg-blue-50 justify-center">
+                <Input.Search className="w-3/4" addonBefore="物品搜索" />
+              </div>
               <ProductList />
             </FuncSection>
           </div>
