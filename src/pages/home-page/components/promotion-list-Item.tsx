@@ -1,3 +1,4 @@
+import { InfoCircleOutlined, StarOutlined } from "@ant-design/icons";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
@@ -34,8 +35,8 @@ const PromotionListItem: React.FC<IPromotionListItemProps> = ({
         </div>
       </div>
       <div className="grid grid-cols-2 justify-items-center mt-2.5">
-        <button className="bg-blue-300 border-blue-300">详情</button>
-        <button className="bg-blue-300 border-blue-300">收藏</button>
+        <button className="bg-white border-none items-center text-lg"><StarOutlined className="mt-1" /></button>
+        <button className="bg-white border-none items-center text-lg"><InfoCircleOutlined /></button>
       </div>
     </div>
   );
