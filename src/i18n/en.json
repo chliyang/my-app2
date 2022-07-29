@@ -1,7 +1,25 @@
 {
   "home": {
-      "product_category": "Product Category",
-      "new_arrival": "New arrival",
-      "joint.venture": "Joint Venture"
-  }
+    "header_list_logout": "Logout",
+    "header_list_cart": "Cart",
+    "header_list_order": "My Order",
+    "menu_home": "Home",
+    "menu_sell": "Sell",
+    "menu_buy": "Buy",
+    "menu_forum": "Forum",
+    "menu_about": "About",
+    "tile_image": "Image of product",
+    "tile_description": "Price: ¥{{price}}",
+    "product_category": "Category",
+    "product_list": "Products",
+    "product_search": "Search",
+    "side_introduction_title": "Introduction of Website",
+    "side_introduction_message": "You can post any items that you don't need and can be reused (except restricted items) but sell them on this platform, or you can search for the items you want to buy on this website.",
+    "side_introduction_button_text": "How to use this website",
+    "side_message_title": "Latest News",
+    "side_message_button_text": "More News",
+    "side_promotion_title": "Promotion",
+    "side_promotion_product_price": "Price: ¥{{price}}",
+    "side_promotion_product_category": "Category: {{category}}"
+}
 }
