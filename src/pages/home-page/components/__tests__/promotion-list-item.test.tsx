@@ -12,7 +12,7 @@ describe("# MessageCard", () => {
     const { getByText } = render(<PromotionListItem {...mockProps} />);
 
     expect(getByText(mockProps.productName)).toBeInTheDocument();
-    expect(getByText("物品价格：0（元）")).toBeInTheDocument();
-    expect(getByText("物品分类：食物")).toBeInTheDocument();
+    expect(getByText("home.side_promotion_product_price")).toBeInTheDocument();
+    expect(getByText("home.side_promotion_product_category")).toBeInTheDocument();
   });
 });

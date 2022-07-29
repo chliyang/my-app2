@@ -12,6 +12,6 @@ describe("# ProductListItem", () => {
     const { getByText } = render(<ProductListItem {...mockProps} />);
 
     expect(getByText(mockProps.productName)).toBeInTheDocument();
-    expect(getByText("商品价格：100（元）")).toBeInTheDocument();
+    expect(getByText("home.tile_description")).toBeInTheDocument();
   });
 });

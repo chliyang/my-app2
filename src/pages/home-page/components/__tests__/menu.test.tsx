@@ -14,7 +14,7 @@ describe("#HeaderList", () => {
     expect(getAllByRole("link")).toHaveLength(5);
 
     act(() => {
-      userEvent.click(getByText("首页"));
+      userEvent.click(getByText("home.menu_home"));
     });
 
     expect(history.location.pathname).toEqual('/home');

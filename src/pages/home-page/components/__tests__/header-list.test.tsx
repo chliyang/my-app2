@@ -13,10 +13,10 @@ describe("#HeaderList", () => {
   it("should render logout and trigger logout when click it", () => {
     const { getByText } = render(<HeaderList />);
 
-    expect(getByText("Logout")).toBeInTheDocument();
+    expect(getByText("home.header_list_logout")).toBeInTheDocument();
 
     act(() => {
-      fireEvent.click(getByText("Logout"));
+      fireEvent.click(getByText("home.header_list_logout"));
     });
 
     expect(mockPush).toHaveBeenCalledWith("/login");
