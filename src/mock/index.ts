@@ -137,3 +137,10 @@ Mock.mock("/products", "get", (req: any) => {
     ]
   };
 });
+
+Mock.mock("/products/types", "get", (req: any) => {
+  return {
+    code: 0,
+    data: ["food", "clothes", "furniture", "electric", "toiletries", "cleaning"]
+  };
+});

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox, Col, Row } from 'antd';
 import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import { fetchProductTypes } from "../../../actions/product-actions/product";
 
 const onChange = (checkedValues: CheckboxValueType[]) => {
   console.log('checked = ', checkedValues);
@@ -8,27 +9,14 @@ const onChange = (checkedValues: CheckboxValueType[]) => {
 
 const ProductCLasses: React.FC = () => {
   // TODO: 加入数据后记得给组件加测试
+  const [productTypes, setProductTypes] = useState([]);
+  fetchProductTypes.then((res) => setProductTypes(res.data));
   return (
     <Checkbox.Group className="w-full pl-16 text-4xl" onChange={onChange}>
       <Row>
-        <Col span={6}>
-          <Checkbox value="food">food</Checkbox>
-        </Col>
-        <Col span={6}>
-          <Checkbox value="clothes">clothes</Checkbox>
-        </Col>
-        <Col span={6}>
-          <Checkbox value="furniture">furniture</Checkbox>
-        </Col>
-        <Col span={6}>
-          <Checkbox value="electric">electric</Checkbox>
-        </Col>
-        <Col span={6}>
-          <Checkbox value="toiletries">toiletries</Checkbox>
-        </Col>
-        <Col span={6}>
-          <Checkbox value="cleaning">cleaning</Checkbox>
-        </Col>
+        {productTypes.map((type) => (<Col key={type} span={6}>
+          <Checkbox value={type}>{type}</Checkbox>
+        </Col>))}
       </Row>
     </Checkbox.Group>
   );
