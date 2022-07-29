@@ -1,12 +1,11 @@
 import { routes } from "./../routes";
 import { renderHook, waitFor } from "@testing-library/react";
 import useRouters from "./use-routers";
-
-const mockHttp = jest.fn();
-jest.mock("../../utils/http/request", () => () => mockHttp());
+import * as http from "../../utils/http/request";
 
 describe("# useRouters", () => {
   const mockUserInfo = { rolesId: [2] };
+  const mockHttp = jest.spyOn(http, "default");
   it("should get visitable routers by user roles id", async () => {
     mockHttp.mockImplementation(() =>
       Promise.resolve({
