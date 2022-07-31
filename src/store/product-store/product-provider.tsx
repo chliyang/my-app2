@@ -14,11 +14,13 @@ export interface IProduct {
 export interface IProductContext {
   products: IProduct[],
   currentProduct: IProduct,
+  currentProductTypes: string[],
 }
 
 const initialState = {
   products: [],
-  currentProduct: {} as IProduct
+  currentProduct: {} as IProduct,
+  currentProductTypes: []
 };
 
 const ProductContext = createContext<{

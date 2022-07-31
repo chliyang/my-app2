@@ -22,3 +22,12 @@ export const setCurrentProduct = (
     type: ProductActionType.SET_CURRENT_PRODUCT,
     payload: product
   });
+
+export const setCurrentProductTypes = (
+  dispatch: React.Dispatch<ProductActions>,
+  productTypes: string[]
+) =>
+  dispatch({
+    type: ProductActionType.SET_CURRENT_PRODUCT_TYPES,
+    payload: productTypes
+  });

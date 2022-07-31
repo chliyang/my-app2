@@ -2,7 +2,8 @@ import { IProduct, IProductContext } from "./product-provider";
 
 export enum ProductActionType {
   SET_PRODUCTS = "SET_PRODUCTS",
-  SET_CURRENT_PRODUCT = "SET_CURRENT_PRODUCT"
+  SET_CURRENT_PRODUCT = "SET_CURRENT_PRODUCT",
+  SET_CURRENT_PRODUCT_TYPES = "SET_CURRENT_PRODUCT_TYPES"
 }
 
 interface ISetProductsAction {
@@ -15,7 +16,12 @@ interface ISetCurrentAction {
   payload: IProduct;
 }
 
-export type ProductActions = ISetProductsAction | ISetCurrentAction;
+interface ISetCurrentProductTypesAction {
+  type: ProductActionType.SET_CURRENT_PRODUCT_TYPES;
+  payload: string[];
+}
+
+export type ProductActions = ISetProductsAction | ISetCurrentAction | ISetCurrentProductTypesAction;
 
 export const productReducer = (
   state: IProductContext,
@@ -33,7 +39,11 @@ export const productReducer = (
         ...state,
         currentProduct: action.payload
       };
-
+    case ProductActionType.SET_CURRENT_PRODUCT_TYPES:
+      return {
+        ...state,
+        currentProductTypes: action.payload
+      };
     default:
       return { ...state };
       break;

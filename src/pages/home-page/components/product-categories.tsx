@@ -3,15 +3,19 @@ import { Checkbox, Col, Row } from 'antd';
 import type { CheckboxValueType } from 'antd/es/checkbox/Group';
 import { fetchProductTypes } from "../../../actions/product-actions/product";
 import { useTranslation } from 'react-i18next';
-
-const onChange = (checkedValues: CheckboxValueType[]) => {
-  console.log('checked = ', checkedValues);
-};
+import { useProductContext } from "../../../store/product-store/product-provider";
+import { setCurrentProductTypes } from "../../../actions/product-actions/dispatcher";
 
 const ProductCLasses: React.FC = () => {
   // TODO: 加入数据后记得给组件加测试
   const { t } = useTranslation();
   const [productTypes, setProductTypes] = useState<string[]>([]);
+  const { dispatch } = useProductContext();
+
+  const onChange = (checkedValues: CheckboxValueType[]) => {
+    setCurrentProductTypes(dispatch, checkedValues as string[]);
+  };
+
   useEffect(() => {
     fetchProductTypes.then((res) => setProductTypes(res.data));
   }, []);
