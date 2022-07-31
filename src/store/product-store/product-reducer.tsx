@@ -48,7 +48,6 @@ export const productReducer = (
       };
     default:
       return { ...state };
-      break;
   }
 };
 
@@ -66,4 +65,4 @@ const getCurrentProduct = (
 const getFilteredProducts = (oldState: IProductContext, filterTypes: string[]): IProduct[] => {
   if (filterTypes.length === 0) return oldState.products;
   return oldState.products.filter((product) => filterTypes.includes(product.category));
-}
+};
