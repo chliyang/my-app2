@@ -32,7 +32,8 @@ export const productReducer = (
       return {
         ...state,
         products: action.payload,
-        currentProduct: getCurrentProduct(state, action.payload)
+        currentProduct: getCurrentProduct(state, action.payload),
+        filteredProducts: getFilteredProducts(state, state.currentProductTypes)
       };
     case ProductActionType.SET_CURRENT_PRODUCT:
       return {
@@ -42,7 +43,8 @@ export const productReducer = (
     case ProductActionType.SET_CURRENT_PRODUCT_TYPES:
       return {
         ...state,
-        currentProductTypes: action.payload
+        currentProductTypes: action.payload,
+        filteredProducts: getFilteredProducts(state, action.payload)
       };
     default:
       return { ...state };
@@ -60,3 +62,8 @@ const getCurrentProduct = (
   }
   return oldState.currentProduct;
 };
+
+const getFilteredProducts = (oldState: IProductContext, filterTypes: string[]): IProduct[] => {
+  if (filterTypes.length === 0) return oldState.products;
+  return oldState.products.filter((product) => filterTypes.includes(product.category));
+}

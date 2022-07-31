@@ -15,12 +15,14 @@ export interface IProductContext {
   products: IProduct[],
   currentProduct: IProduct,
   currentProductTypes: string[],
+  filteredProducts: IProduct[]
 }
 
 const initialState = {
   products: [],
   currentProduct: {} as IProduct,
-  currentProductTypes: []
+  currentProductTypes: [],
+  filteredProducts: []
 };
 
 const ProductContext = createContext<{
