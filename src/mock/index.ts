@@ -84,7 +84,7 @@ Mock.mock("/users", "post", (req: any) => {
   }
 });
 
-Mock.mock("/users/info", "get", (req: any) => {
+Mock.mock("/users/info", "get", () => {
   return {
     code: 0,
     data: {
@@ -95,50 +95,50 @@ Mock.mock("/users/info", "get", (req: any) => {
   };
 });
 
-Mock.mock("/products", "get", (req: any) => {
+Mock.mock("/products", "get", () => {
   return {
     code: 0,
     data: [
       {
         productId: "1",
-        productName: "name1",
+        productName: "apple",
         productPrice: "200",
         productImg: "light.jpg",
         category: "food"
       },
       {
         productId: "2",
-        productName: "name2",
+        productName: "skirt",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "food"
+        category: "clothes"
       },
       {
         productId: "3",
-        productName: "name3",
+        productName: "desk",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "food"
+        category: "furniture"
       },
       {
         productId: "4",
-        productName: "name4",
+        productName: "telephone",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "food"
+        category: "electric"
       },
       {
         productId: "5",
-        productName: "name5",
+        productName: "toothpaste",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "food"
+        category: "toiletries"
       }
     ]
   };
 });
 
-Mock.mock("/products/types", "get", (req: any) => {
+Mock.mock("/products/types", "get", () => {
   return {
     code: 0,
     data: ["food", "clothes", "furniture", "electric", "toiletries", "cleaning"]
