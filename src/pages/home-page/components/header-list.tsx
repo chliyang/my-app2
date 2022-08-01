@@ -22,7 +22,6 @@ const HeaderList: React.FC = () => {
   const handleLogout = () => {
     logout();
     history.push("/login");
-    window.location.reload();
   };
   const HeaderListItems: IListItem[] = [
     {
@@ -42,8 +41,12 @@ const HeaderList: React.FC = () => {
     },
     {
       icon: <TranslationOutlined className="flex items-center" />,
-      description: i18n.language === "en" ? "中文" : "English",
-      onClick: () => i18n.changeLanguage(i18n.language === "en" ? "zh" : "en")
+      description: i18n.language === "en"
+        ? "中文"
+        : "English",
+      onClick: () => i18n.changeLanguage(i18n.language === "en"
+        ? "zh"
+        : "en")
     }
   ];
 

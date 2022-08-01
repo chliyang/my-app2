@@ -20,8 +20,6 @@ const useLoginPage = () => {
       })
       .then(() => {
         history.push("/home");
-        // TODO: 应当自动刷新
-        window.location.reload();
       })
       .catch((e) => {
         setIsLoading(false);

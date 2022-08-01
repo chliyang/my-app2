@@ -18,7 +18,6 @@ const useRegisterPage = () => {
       })
       .then(() => {
         history.push("/login");
-        window.location.reload();
       })
       .catch((e) => {
         setIsLoading(false);
@@ -32,7 +31,7 @@ const useRegisterPage = () => {
   const handleEmailVerify = (email: string) => {
     setIsLoading(true);
     http("get", "/users/email", {}, { email })
-      .then((res) => {
+      .then(() => {
         setIsLoading(false);
         setIsEmailVerifyStep(false);
       })
