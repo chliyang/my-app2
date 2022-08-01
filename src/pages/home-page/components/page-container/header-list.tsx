@@ -6,7 +6,7 @@ import {
 } from "@ant-design/icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { logout } from "../../../utils/session";
+import { logout } from "../../../../utils/session";
 import { useTranslation } from "react-i18next";
 
 interface IListItem {
@@ -32,21 +32,17 @@ const HeaderList: React.FC = () => {
     {
       icon: <ShoppingCartOutlined className="flex items-center" />,
       description: "home.header_list_cart",
-      onClick: () => { }
+      onClick: () => {}
     },
     {
       icon: <ProfileOutlined className="flex items-center" />,
       description: "home.header_list_order",
-      onClick: () => { }
+      onClick: () => {}
     },
     {
       icon: <TranslationOutlined className="flex items-center" />,
-      description: i18n.language === "en"
-        ? "中文"
-        : "English",
-      onClick: () => i18n.changeLanguage(i18n.language === "en"
-        ? "zh"
-        : "en")
+      description: i18n.language === "en" ? "中文" : "English",
+      onClick: () => i18n.changeLanguage(i18n.language === "en" ? "zh" : "en")
     }
   ];
 
