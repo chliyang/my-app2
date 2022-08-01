@@ -1,12 +1,11 @@
 import { Input } from "antd";
 import React from "react";
-import HeaderList from "./components/page-container/header-list";
-import Menu from "./components/page-container/menu";
 import SideSection from "./components/side-section";
 import ProductCLasses from "./components/product-categories";
 import ProductList from "./components/product-list";
 import ProductProvider from "../../store/product-store/product-provider";
 import { useTranslation } from "react-i18next";
+import PageContainer from "./components/page-container/page-container";
 
 const FuncSection: React.FC<{ label: string }> = ({ label, children }) => {
   return (
@@ -23,14 +22,7 @@ const HomePage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <ProductProvider>
-      <div className="h-full overflow-auto no-scrollbar w-980px min-width-980 mx-auto shrink-0">
-        <header className="mt-10">
-          <HeaderList />
-          <div className="text-2xl font-medium">
-            Buy and sell trading platform
-          </div>
-        </header>
-        <Menu />
+      <PageContainer>
         <main className="flex mb-8 bg-white">
           <div className="w-3/4 border-solid border-gray-200">
             <FuncSection label={t("home.product_category")}>
@@ -50,7 +42,7 @@ const HomePage: React.FC = () => {
           </div>
           <SideSection />
         </main>
-      </div>
+      </PageContainer>
     </ProductProvider>
   );
 };
