@@ -1,17 +1,22 @@
 import { render } from "@testing-library/react";
-import ProductListItem, { IProductListItemProps } from "../product-list-item";
+import { IProduct } from "../../../../store/product-store/product-provider";
+import ProductListItem from "../product-list-item";
 
 describe("# ProductListItem", () => {
-  const mockProps: IProductListItemProps = {
+  const mockCurrentProduct: IProduct = {
     productImg: "light.jpg",
     productName: "product name",
-    productPrice: "100"
+    productPrice: "100",
+    productId: "001",
+    category: "food"
   };
 
   it("should render content correctly", () => {
-    const { getByText } = render(<ProductListItem {...mockProps} />);
+    const { getByText } = render(
+      <ProductListItem currentProduct={mockCurrentProduct} />
+    );
 
-    expect(getByText(mockProps.productName)).toBeInTheDocument();
+    expect(getByText(mockCurrentProduct.productName)).toBeInTheDocument();
     expect(getByText("home.tile_description")).toBeInTheDocument();
   });
 });

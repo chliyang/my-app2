@@ -9,12 +9,7 @@ const ProductList: React.FC = () => {
   return (
     <div className="grid grid-cols-1 divide-y-1 mx-8 pb-8">
       {products.map((product) => (
-        <ProductListItem
-          key={product.productId}
-          productImg={product.productImg}
-          productName={product.productName}
-          productPrice={product.productPrice}
-        />
+        <ProductListItem key={product.productId} currentProduct={product} />
       ))}
     </div>
   );
