@@ -7,7 +7,15 @@ const RouteContainer = () => {
   const { visitableRoutes } = useRouters();
   return (
     <Switch>
-      {visitableRoutes.map((route) => (<PrivateRoute key={route.path} path={route.path} exact auth component={route.component} />))}
+      {visitableRoutes.map((route) => (
+        <PrivateRoute
+          key={route.path}
+          path={route.path}
+          exact
+          auth
+          component={route.component}
+        />
+      ))}
     </Switch>
   );
 };

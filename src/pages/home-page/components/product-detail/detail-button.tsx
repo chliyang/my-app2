@@ -13,7 +13,8 @@ const DetailButton: React.FC<{ currentProduct: IProduct }> = ({
   const history = useHistory();
   const { dispatch } = useProductContext();
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    // console.log(currentProduct);
     setCurrentProduct(dispatch, currentProduct);
     history.push(`/products/${currentProduct.productId}`);
   };

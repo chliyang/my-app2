@@ -21,7 +21,10 @@ interface ISetCurrentProductTypesAction {
   payload: string[];
 }
 
-export type ProductActions = ISetProductsAction | ISetCurrentAction | ISetCurrentProductTypesAction;
+export type ProductActions =
+  | ISetProductsAction
+  | ISetCurrentAction
+  | ISetCurrentProductTypesAction;
 
 export const productReducer = (
   state: IProductContext,
@@ -56,13 +59,19 @@ const getCurrentProduct = (
   products: IProduct[]
 ): IProduct => {
   const { currentProduct } = oldState;
+  console.log("hsdjfhwehf", currentProduct);
   if (Object.keys(currentProduct).length === 0) {
     return products[0];
   }
   return oldState.currentProduct;
 };
 
-const getFilteredProducts = (oldState: IProductContext, filterTypes: string[]): IProduct[] => {
+const getFilteredProducts = (
+  oldState: IProductContext,
+  filterTypes: string[]
+): IProduct[] => {
   if (filterTypes.length === 0) return oldState.products;
-  return oldState.products.filter((product) => filterTypes.includes(product.category));
+  return oldState.products.filter((product) =>
+    filterTypes.includes(product.category)
+  );
 };

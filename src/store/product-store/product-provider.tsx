@@ -1,21 +1,21 @@
-import React, { createContext, useReducer, useContext, useEffect } from 'react';
+import React, { createContext, useReducer, useContext, useEffect } from "react";
 import { setProducts } from "../../actions/product-actions/dispatcher";
 import { fetchProduct } from "../../actions/product-actions/product";
 import { ProductActions, productReducer } from "./product-reducer";
 
 export interface IProduct {
-  productId: string,
-  productName: string,
-  productPrice: string,
-  productImg: string,
-  category: string
+  productId: string;
+  productName: string;
+  productPrice: string;
+  productImg: string;
+  category: string;
 }
 
 export interface IProductContext {
-  products: IProduct[],
-  currentProduct: IProduct,
-  currentProductTypes: string[],
-  filteredProducts: IProduct[]
+  products: IProduct[];
+  currentProduct: IProduct;
+  currentProductTypes: string[];
+  filteredProducts: IProduct[];
 }
 
 const initialState = {
@@ -37,8 +37,15 @@ const ProductProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 
   useEffect(() => {
+    console.log("provider");
     fetchProduct.then((res) => setProducts(dispatch, res.data));
   }, []);
+
+  useEffect(() => {
+    return () => {
+      console.log("xiezai");
+    };
+  });
 
   return (
     <ProductContext.Provider

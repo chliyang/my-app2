@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import Root from "./routes/root";
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import "./mock";
-import './i18n/config';
+import "./i18n/config";
+import ProductProvider from "./store/product-store/product-provider";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Root />
+    <ProductProvider>
+      <Root />
+    </ProductProvider>
   </React.StrictMode>
 );
 

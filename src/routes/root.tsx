@@ -1,8 +1,4 @@
-import {
-  Redirect,
-  Route,
-  Switch
-} from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import React from "react";
 import LoginPage from "../pages/login-page/login-page";
 import { isAuthenticated } from "../utils/session";
@@ -24,15 +20,17 @@ const Root = () => {
             path="/login"
             exact
             render={() => {
-              return isAuthenticated()
-                ? <Redirect to="/home" />
-                : <LoginPage />;
+              return isAuthenticated() ? (
+                <Redirect to="/home" />
+              ) : (
+                <LoginPage />
+              );
             }}
           />
           <PrivateRoute path="/" component={RouteContainer} />
         </Switch>
       </Router>
-    </div >
+    </div>
   );
 };
 

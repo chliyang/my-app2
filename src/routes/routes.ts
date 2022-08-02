@@ -3,6 +3,7 @@ import { isAuthenticated } from "./../utils/session";
 import LoginPage from "../pages/login-page/login-page";
 import RegisterPage from "../pages/register-page/register-page";
 import HomePage from "../pages/home-page/home-page";
+import ProductDetail from "../pages/home-page/components/product-detail/detail-page";
 
 interface IRouteType {
   path: string;
@@ -64,5 +65,11 @@ export const routes: Array<IRouteType> = [
     component: HomePage,
     isAuthenticated: isAuthenticated(),
     rolesId: [2]
+  },
+  {
+    path: "/products/:id",
+    component: ProductDetail,
+    isAuthenticated: isAuthenticated(),
+    rolesId: [0, 1, 2]
   }
 ];
