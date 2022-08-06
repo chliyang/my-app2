@@ -18,6 +18,7 @@ export interface IProductContext {
   products: IProduct[];
   currentProduct: IProduct;
   currentProductTypes: string[];
+  searchKey: string;
   filteredProducts: IProduct[];
 }
 
@@ -25,6 +26,7 @@ const initialState = {
   products: [],
   currentProduct: {} as IProduct,
   currentProductTypes: [],
+  searchKey: "",
   filteredProducts: []
 };
 

@@ -14,13 +14,13 @@ export const setProducts = (
     payload: products
   });
 
-export const setFilteredProducts = (
+export const setSearchKey = (
   dispatch: React.Dispatch<ProductActions>,
-  products: IProduct[]
+  searchKey: string
 ) =>
   dispatch({
-    type: ProductActionType.SET_FILTERED_PRODUCTS,
-    payload: products
+    type: ProductActionType.SET_SEARCH_KEY,
+    payload: searchKey
   });
 
 export const setCurrentProduct = (
