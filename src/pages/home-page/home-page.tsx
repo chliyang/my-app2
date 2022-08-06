@@ -1,10 +1,10 @@
-import { Input } from "antd";
 import React from "react";
 import SideSection from "./components/side-section";
 import ProductCLasses from "./components/product-categories";
 import ProductList from "./components/product-list";
 import { useTranslation } from "react-i18next";
 import PageContainer from "./components/page-container/page-container";
+import SearchBar from "./components/search-bar";
 
 const FuncSection: React.FC<{ label: string }> = ({ label, children }) => {
   return (
@@ -29,12 +29,7 @@ const HomePage: React.FC = () => {
           </FuncSection>
 
           <FuncSection label={t("home.product_list")}>
-            <div className="flex w-full py-3  bg-blue-50 justify-center">
-              <Input.Search
-                className="w-3/4"
-                addonBefore={t("home.product_search")}
-              />
-            </div>
+            <SearchBar />
             <ProductList />
           </FuncSection>
         </div>

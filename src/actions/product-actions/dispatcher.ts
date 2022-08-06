@@ -14,6 +14,15 @@ export const setProducts = (
     payload: products
   });
 
+export const setFilteredProducts = (
+  dispatch: React.Dispatch<ProductActions>,
+  products: IProduct[]
+) =>
+  dispatch({
+    type: ProductActionType.SET_FILTERED_PRODUCTS,
+    payload: products
+  });
+
 export const setCurrentProduct = (
   dispatch: React.Dispatch<ProductActions>,
   product: IProduct
