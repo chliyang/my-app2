@@ -6,6 +6,7 @@ import { ProductActions, productReducer } from "./product-reducer";
 export interface IProduct {
   productId: string;
   productName: string;
+  isFavorite: boolean;
   productPrice: string;
   productImg: string;
   category: string;

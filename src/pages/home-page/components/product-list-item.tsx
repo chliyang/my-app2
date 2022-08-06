@@ -1,7 +1,7 @@
-import { StarOutlined } from "@ant-design/icons";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { IProduct } from "../../../store/product-store/product-provider";
+import FavoriteButton from "./favorite-button";
 import DetailButton from "./product-detail/detail-button";
 
 const ProductListItem: React.FC<{ currentProduct: IProduct }> = ({
@@ -24,9 +24,7 @@ const ProductListItem: React.FC<{ currentProduct: IProduct }> = ({
         </div>
       </div>
       <div className="flex space-y-1 flex-row">
-        <button className="bg-white border-none items-center text-lg">
-          <StarOutlined className="mt-1 mx-2" />
-        </button>
+        <FavoriteButton currentProduct={currentProduct} />
         <DetailButton currentProduct={currentProduct} />
       </div>
     </div>

@@ -102,6 +102,7 @@ Mock.mock("/products", "get", () => {
       {
         productId: "1",
         productName: "apple",
+        isFavorite: true,
         productPrice: "200",
         productImg: "light.jpg",
         category: "food",
@@ -112,6 +113,7 @@ Mock.mock("/products", "get", () => {
       {
         productId: "2",
         productName: "skirt",
+        isFavorite: false,
         productPrice: "200",
         productImg: "light.jpg",
         category: "clothes",
@@ -122,6 +124,7 @@ Mock.mock("/products", "get", () => {
       {
         productId: "3",
         productName: "desk",
+        isFavorite: false,
         productPrice: "200",
         productImg: "light.jpg",
         category: "furniture",
@@ -132,6 +135,7 @@ Mock.mock("/products", "get", () => {
       {
         productId: "4",
         productName: "telephone",
+        isFavorite: false,
         productPrice: "200",
         productImg: "light.jpg",
         category: "electric",
@@ -142,6 +146,7 @@ Mock.mock("/products", "get", () => {
       {
         productId: "5",
         productName: "toothpaste",
+        isFavorite: false,
         productPrice: "200",
         productImg: "light.jpg",
         category: "toiletries",
@@ -157,5 +162,22 @@ Mock.mock("/products/types", "get", () => {
   return {
     code: 0,
     data: ["food", "clothes", "furniture", "electric", "toiletries", "cleaning"]
+  };
+});
+
+Mock.mock(/\/products\/[0-9A-Za-z]+/, "patch", () => {
+  return {
+    code: 0,
+    data: {
+      productId: "5",
+      productName: "toothpaste",
+      isFavorite: false,
+      productPrice: "200",
+      productImg: "light.jpg",
+      category: "toiletries",
+      createdAt: "2022-2-18",
+      createdBy: "zeng",
+      description: "This is an toothpaste"
+    }
   };
 });
