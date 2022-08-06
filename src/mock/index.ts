@@ -104,35 +104,50 @@ Mock.mock("/products", "get", () => {
         productName: "apple",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "food"
+        category: "food",
+        createdAt: "2022-2-22",
+        createdBy: "wang",
+        description: "This is an apple"
       },
       {
         productId: "2",
         productName: "skirt",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "clothes"
+        category: "clothes",
+        createdAt: "2022-2-24",
+        createdBy: "chang",
+        description: "This is an skirt"
       },
       {
         productId: "3",
         productName: "desk",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "furniture"
+        category: "furniture",
+        createdAt: "2022-2-25",
+        createdBy: "zhang",
+        description: "This is an desk"
       },
       {
         productId: "4",
         productName: "telephone",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "electric"
+        category: "electric",
+        createdAt: "2022-2-12",
+        createdBy: "li",
+        description: "This is an telephone"
       },
       {
         productId: "5",
         productName: "toothpaste",
         productPrice: "200",
         productImg: "light.jpg",
-        category: "toiletries"
+        category: "toiletries",
+        createdAt: "2022-2-18",
+        createdBy: "zeng",
+        description: "This is an toothpaste"
       }
     ]
   };

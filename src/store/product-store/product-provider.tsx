@@ -9,6 +9,9 @@ export interface IProduct {
   productPrice: string;
   productImg: string;
   category: string;
+  description: string | null;
+  createdAt: string;
+  createdBy: string;
 }
 
 export interface IProductContext {
@@ -37,13 +40,13 @@ const ProductProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 
   useEffect(() => {
-    console.log("provider");
+    console.log("provider init");
     fetchProduct.then((res) => setProducts(dispatch, res.data));
   }, []);
 
   useEffect(() => {
     return () => {
-      console.log("xiezai");
+      console.log("provider unMount");
     };
   });
 

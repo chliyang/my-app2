@@ -8,7 +8,10 @@ describe("# ProductListItem", () => {
     productName: "product name",
     productPrice: "100",
     productId: "001",
-    category: "food"
+    category: "food",
+    createdAt: "2022-2-25",
+    createdBy: "zhang",
+    description: null
   };
 
   it("should render content correctly", () => {

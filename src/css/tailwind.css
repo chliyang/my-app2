@@ -10,6 +10,10 @@
   border-left: 1px solid gray;
 }
 
+.border-top {
+  border-top: 1px solid gray;
+}
+
 .min-width-980 {
   min-width: 980px;
 }
