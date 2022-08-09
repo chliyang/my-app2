@@ -16,7 +16,10 @@ const DetailButton: React.FC<{ currentProduct: IProduct }> = ({
   const handleClick = async () => {
     // console.log(currentProduct);
     setCurrentProduct(dispatch, currentProduct);
-    history.push(`/products/${currentProduct.productId}`);
+    history.push({
+      pathname: `/products/${currentProduct.productId}`,
+      state: currentProduct
+    });
   };
   return (
     <button

@@ -1,13 +1,13 @@
 import React from "react";
-import { useProductContext } from "../../../../store/product-store/product-provider";
+import { IProduct } from "../../../../store/product-store/product-provider";
 import PageContainer from "../page-container/page-container";
 import { useTranslation } from "react-i18next";
 import ProductList from "../product-list";
+import { useLocation } from "react-router-dom";
 
 const ProductDetail: React.FC = () => {
-  const { state } = useProductContext();
-  console.log("state in detail page", state);
-
+  const location = useLocation<IProduct>();
+  const currentProduct = location.state;
   const { t } = useTranslation();
   return (
     <PageContainer>
@@ -19,14 +19,23 @@ const ProductDetail: React.FC = () => {
         />
         <div className="flex-1 mx-16">
           <div className="my-3 text-2xl">
-            物品名称： {"随便随便随便随便随便随便随便"}
+            物品名称： {currentProduct.productName}
           </div>
-          <div className="my-3 text-lg">物品编号： {"12345678"}</div>
-          <div className="my-3 text-lg">物品类别： {"食物"}</div>
-          <div className="my-3 text-lg">交易区域： {"西安"}</div>
-          <div className="my-3 text-lg">上传会员： {"啦啦啦啦啦"}</div>
-          <div className="my-3 text-lg">上传日期： {"2022-2-22"}</div>
-          <div className="my-3 text-lg">物品详情： {"这是一个啥"}</div>
+          <div className="my-3 text-lg">
+            物品编号： {currentProduct.productId}
+          </div>
+          <div className="my-3 text-lg">
+            物品类别： {currentProduct.category}
+          </div>
+          <div className="my-3 text-lg">
+            上传会员： {currentProduct.createdBy}
+          </div>
+          <div className="my-3 text-lg">
+            上传日期： {currentProduct.createdAt}
+          </div>
+          <div className="my-3 text-lg">
+            物品详情： {currentProduct.description}
+          </div>
           <button className="mt-3 bg-blue-200 items-center text-lg">
             收藏
           </button>
