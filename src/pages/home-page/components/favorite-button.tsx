@@ -10,9 +10,10 @@ import {
   useProductContext
 } from "../../../store/product-store/product-provider";
 
-const FavoriteButton: React.FC<{ currentProduct: IProduct }> = ({
-  currentProduct
-}) => {
+const FavoriteButton: React.FC<{
+  currentProduct: IProduct;
+  className?: string;
+}> = ({ currentProduct, className }) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(
     currentProduct.isFavorite
   );
@@ -27,7 +28,7 @@ const FavoriteButton: React.FC<{ currentProduct: IProduct }> = ({
   };
   return (
     <button
-      className="bg-white border-none items-center text-lg"
+      className={`bg-white border-none items-center text-lg ${className}`}
       onClick={handleClick}
     >
       {isFavorite ? (
