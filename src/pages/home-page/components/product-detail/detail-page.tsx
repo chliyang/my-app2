@@ -3,12 +3,18 @@ import { IProduct } from "../../../../store/product-store/product-provider";
 import PageContainer from "../page-container/page-container";
 import { useTranslation } from "react-i18next";
 import ProductList from "../product-list";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import FavoriteButton from "../favorite-button";
 
 const ProductDetail: React.FC = () => {
   const location = useLocation<IProduct>();
   const currentProduct = location.state;
   const { t } = useTranslation();
+  const history = useHistory();
+
+  const goHome = () => {
+    history.push("/home");
+  };
   return (
     <PageContainer>
       <main className="flex drop-shadow-lg bg-white p-8">
@@ -18,8 +24,14 @@ const ProductDetail: React.FC = () => {
           className="h-80 w-80 border-solid border-gray-200 p-3"
         />
         <div className="flex-1 mx-16">
-          <div className="my-3 text-2xl">
-            {t("detail.main_product_name") + currentProduct.productName}
+          <div className="flex my-3 text-2xl">
+            <div className="flex-1">
+              {t("detail.main_product_name") + currentProduct.productName}
+            </div>
+            <FavoriteButton
+              currentProduct={currentProduct}
+              className="text-2xl"
+            />
           </div>
           <div className="my-3 text-lg">
             {t("detail.main_product_id") + currentProduct.productId}
@@ -36,10 +48,10 @@ const ProductDetail: React.FC = () => {
           <div className="my-3 text-lg">
             {t("detail.main_product_description") + currentProduct.description}
           </div>
-          <button className="mt-3 bg-blue-200 items-center text-lg">
-            {t("detail.button_add_favorite")}
-          </button>
-          <button className="mt-3 ml-16 bg-blue-200 items-center text-lg">
+          <button
+            className="mt-3 bg-blue-200 items-center text-lg"
+            onClick={goHome}
+          >
             {t("detail.button_go_back")}
           </button>
         </div>
