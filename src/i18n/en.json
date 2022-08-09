@@ -36,6 +36,8 @@
     "main_create_at": "Create At: ",
     "main_product_description": "Description: ",
     "button_go_back": "Go Home",
-    "promotion_list": "Promotions"
+    "promotion_list": "Promotions",
+    "toast_action_success": "Action success!",
+    "toast_action_failed": "Action failed!"
   }
 }

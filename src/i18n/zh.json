@@ -36,6 +36,8 @@
     "main_create_at": "上传日期： ",
     "main_product_description": "物品详情： ",
     "button_go_back": "返回上一层",
-    "promotion_list": "推荐好物"
+    "promotion_list": "推荐好物",
+    "toast_action_success": "操作成功!",
+    "toast_action_failed": "操作失败，请重试!"
   }
 }
