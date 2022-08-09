@@ -19,34 +19,34 @@ const ProductDetail: React.FC = () => {
         />
         <div className="flex-1 mx-16">
           <div className="my-3 text-2xl">
-            物品名称： {currentProduct.productName}
+            {t("detail.main_product_name") + currentProduct.productName}
           </div>
           <div className="my-3 text-lg">
-            物品编号： {currentProduct.productId}
+            {t("detail.main_product_id") + currentProduct.productId}
           </div>
           <div className="my-3 text-lg">
-            物品类别： {currentProduct.category}
+            {t("detail.main_product_category") + currentProduct.category}
           </div>
           <div className="my-3 text-lg">
-            上传会员： {currentProduct.createdBy}
+            {t("detail.main_create_by") + currentProduct.createdBy}
           </div>
           <div className="my-3 text-lg">
-            上传日期： {currentProduct.createdAt}
+            {t("detail.main_create_at") + currentProduct.createdAt}
           </div>
           <div className="my-3 text-lg">
-            物品详情： {currentProduct.description}
+            {t("detail.main_product_description") + currentProduct.description}
           </div>
           <button className="mt-3 bg-blue-200 items-center text-lg">
-            收藏
+            {t("detail.button_add_favorite")}
           </button>
           <button className="mt-3 ml-16 bg-blue-200 items-center text-lg">
-            返回上一层
+            {t("detail.button_go_back")}
           </button>
         </div>
       </main>
       <div className="w-full mb-8 bg-white">
         <div className="mx-8 mt-8 inline-block drop-shadow-md text-lg py-1 px-3 bg-blue-200">
-          推荐好物
+          {t("detail.promotion_list")}
         </div>
         <ProductList />
       </div>
