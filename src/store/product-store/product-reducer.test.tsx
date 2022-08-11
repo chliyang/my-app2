@@ -74,4 +74,19 @@ describe("#ProductReducer", () => {
       filteredProducts: []
     });
   });
+
+  test("should return new state when SET_CURRENT_PRODUCT", () => {
+    const mockAction: ProductActions = {
+      type: ProductActionType.SET_CURRENT_PRODUCT,
+      payload: mockProduct
+    };
+    const newSate = productReducer(initialState, mockAction);
+    expect(newSate).toEqual({
+      products: [],
+      currentProduct: { ...mockProduct } as IProduct,
+      currentProductTypes: [],
+      searchKey: "",
+      filteredProducts: []
+    });
+  });
 });
