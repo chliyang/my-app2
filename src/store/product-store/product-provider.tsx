@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext, useEffect } from "react";
-import { setProducts } from "../../actions/product-actions/dispatcher";
+import { setProducts } from "../../actions/product-actions/dispatch-action";
 import { fetchProduct } from "../../actions/product-actions/product";
 import { ProductActions, productReducer } from "./product-reducer";
 

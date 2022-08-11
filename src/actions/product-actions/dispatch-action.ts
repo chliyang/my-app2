@@ -1,4 +1,4 @@
-import { IProduct } from "./../../store/product-store/product-provider";
+import { IProduct } from "../../store/product-store/product-provider";
 import React from "react";
 import {
   ProductActions,

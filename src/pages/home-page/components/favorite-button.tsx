@@ -2,7 +2,7 @@ import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { message, Spin } from "antd";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { setProducts } from "../../../actions/product-actions/dispatcher";
+import { setProducts } from "../../../actions/product-actions/dispatch-action";
 import {
   fetchProduct,
   updateProduct

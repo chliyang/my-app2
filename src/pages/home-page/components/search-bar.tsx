@@ -1,7 +1,7 @@
 import { Input } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { setSearchKey } from "../../../actions/product-actions/dispatcher";
+import { setSearchKey } from "../../../actions/product-actions/dispatch-action";
 import { useProductContext } from "../../../store/product-store/product-provider";
 
 const SearchBar: React.FC = () => {

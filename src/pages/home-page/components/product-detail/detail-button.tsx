@@ -1,7 +1,7 @@
 import { InfoCircleOutlined } from "@ant-design/icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { setCurrentProduct } from "../../../../actions/product-actions/dispatcher";
+import { setCurrentProduct } from "../../../../actions/product-actions/dispatch-action";
 import {
   IProduct,
   useProductContext

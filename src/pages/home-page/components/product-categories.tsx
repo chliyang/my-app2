@@ -4,7 +4,7 @@ import type { CheckboxValueType } from "antd/es/checkbox/Group";
 import { fetchProductTypes } from "../../../actions/product-actions/product";
 import { useTranslation } from "react-i18next";
 import { useProductContext } from "../../../store/product-store/product-provider";
-import { setCurrentProductTypes } from "../../../actions/product-actions/dispatcher";
+import { setCurrentProductTypes } from "../../../actions/product-actions/dispatch-action";
 
 const ProductCLasses: React.FC = () => {
   // TODO: 加入数据后记得给组件加测试
