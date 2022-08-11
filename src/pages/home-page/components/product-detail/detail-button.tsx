@@ -23,6 +23,7 @@ const DetailButton: React.FC<{ currentProduct: IProduct }> = ({
   };
   return (
     <button
+      data-testid="detail-button"
       className="bg-white border-none mx-2 items-center border-left text-lg"
       onClick={() => handleClick()}
     >
