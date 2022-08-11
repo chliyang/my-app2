@@ -49,9 +49,9 @@ const FavoriteButton: React.FC<{
       {isDisable && <Spin className="mt-2 mx-2" />}
       {!isDisable &&
         (isFavorite ? (
-          <StarFilled className="mt-2 mx-2" />
+          <StarFilled data-testid="filled-star" className="mt-2 mx-2" />
         ) : (
-          <StarOutlined className="mt-2 mx-2" />
+          <StarOutlined data-testid="outline-star" className="mt-2 mx-2" />
         ))}
     </button>
   );

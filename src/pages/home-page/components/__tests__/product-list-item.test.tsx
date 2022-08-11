@@ -6,6 +6,7 @@ describe("# ProductListItem", () => {
   const mockCurrentProduct: IProduct = {
     productImg: "light.jpg",
     productName: "product name",
+    isFavorite: false,
     productPrice: "100",
     productId: "001",
     category: "food",
@@ -15,11 +16,12 @@ describe("# ProductListItem", () => {
   };
 
   it("should render content correctly", () => {
-    const { getByText } = render(
+    const { getByText, getByTestId } = render(
       <ProductListItem currentProduct={mockCurrentProduct} />
     );
 
     expect(getByText(mockCurrentProduct.productName)).toBeInTheDocument();
+    expect(getByTestId("outline-star")).toBeInTheDocument();
     expect(getByText("home.tile_description")).toBeInTheDocument();
   });
 });
