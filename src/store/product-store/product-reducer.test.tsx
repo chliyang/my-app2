@@ -89,4 +89,40 @@ describe("#ProductReducer", () => {
       filteredProducts: []
     });
   });
+
+  test("should return new state when include CURRENT_PRODUCT_TYPES", () => {
+    const mockAction: ProductActions = {
+      type: ProductActionType.SET_CURRENT_PRODUCT_TYPES,
+      payload: ["food"]
+    };
+    const newSate = productReducer(
+      { ...initialState, products: [mockProduct], currentProduct: mockProduct },
+      mockAction
+    );
+    expect(newSate).toEqual({
+      products: [mockProduct],
+      currentProduct: { ...mockProduct } as IProduct,
+      currentProductTypes: ["food"],
+      searchKey: "",
+      filteredProducts: [mockProduct]
+    });
+  });
+
+  test("should return new state when not include CURRENT_PRODUCT_TYPES", () => {
+    const mockAction: ProductActions = {
+      type: ProductActionType.SET_CURRENT_PRODUCT_TYPES,
+      payload: ["clothes"]
+    };
+    const newSate = productReducer(
+      { ...initialState, products: [mockProduct], currentProduct: mockProduct },
+      mockAction
+    );
+    expect(newSate).toEqual({
+      products: [mockProduct],
+      currentProduct: { ...mockProduct } as IProduct,
+      currentProductTypes: ["clothes"],
+      searchKey: "",
+      filteredProducts: []
+    });
+  });
 });
