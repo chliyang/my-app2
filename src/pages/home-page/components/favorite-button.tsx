@@ -38,7 +38,7 @@ const FavoriteButton: React.FC<{
         message.error(t("detail.toast_action_failed"), 2);
       });
 
-    fetchProduct.then((res) => setProducts(dispatch, res.data));
+    fetchProduct().then((res) => setProducts(dispatch, res.data));
   };
   return (
     <button

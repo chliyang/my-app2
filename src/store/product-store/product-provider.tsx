@@ -44,7 +44,7 @@ const ProductProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     console.log("provider init");
-    fetchProduct.then((res) => setProducts(dispatch, res.data));
+    fetchProduct().then((res) => setProducts(dispatch, res.data));
   }, []);
 
   useEffect(() => {

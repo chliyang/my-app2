@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Checkbox, Col, Row } from 'antd';
-import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import { Checkbox, Col, Row } from "antd";
+import type { CheckboxValueType } from "antd/es/checkbox/Group";
 import { fetchProductTypes } from "../../../actions/product-actions/product";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { useProductContext } from "../../../store/product-store/product-provider";
 import { setCurrentProductTypes } from "../../../actions/product-actions/dispatcher";
 
@@ -17,14 +17,18 @@ const ProductCLasses: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchProductTypes.then((res) => setProductTypes(res.data));
+    fetchProductTypes().then((res) => setProductTypes(res.data));
   }, []);
   return (
     <Checkbox.Group className="w-full pl-16 text-4xl" onChange={onChange}>
       <Row>
-        {productTypes.map((type) => (<Col key={type} span={6}>
-          <Checkbox value={type}>{t(`home.product_category_${type}`)}</Checkbox>
-        </Col>))}
+        {productTypes.map((type) => (
+          <Col key={type} span={6}>
+            <Checkbox value={type}>
+              {t(`home.product_category_${type}`)}
+            </Checkbox>
+          </Col>
+        ))}
       </Row>
     </Checkbox.Group>
   );
