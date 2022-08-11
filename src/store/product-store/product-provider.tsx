@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useContext, useEffect } from "react";
 import { setProducts } from "../../actions/product-actions/dispatch-action";
-import { fetchProduct } from "../../actions/product-actions/product";
+import { fetchProduct } from "../../actions/product-actions/product-api";
 import { ProductActions, productReducer } from "./product-reducer";
 
 export interface IProduct {

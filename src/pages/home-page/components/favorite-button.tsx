@@ -6,7 +6,7 @@ import { setProducts } from "../../../actions/product-actions/dispatch-action";
 import {
   fetchProduct,
   updateProduct
-} from "../../../actions/product-actions/product";
+} from "../../../actions/product-actions/product-api";
 import {
   IProduct,
   useProductContext

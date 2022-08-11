@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Checkbox, Col, Row } from "antd";
 import type { CheckboxValueType } from "antd/es/checkbox/Group";
-import { fetchProductTypes } from "../../../actions/product-actions/product";
+import { fetchProductTypes } from "../../../actions/product-actions/product-api";
 import { useTranslation } from "react-i18next";
 import { useProductContext } from "../../../store/product-store/product-provider";
 import { setCurrentProductTypes } from "../../../actions/product-actions/dispatch-action";

@@ -1,4 +1,4 @@
-import * as productActions from "../../actions/product-actions/product";
+import * as productActions from "../../actions/product-actions/product-api";
 import ProductProvider, {
   IProduct,
   useProductContext
