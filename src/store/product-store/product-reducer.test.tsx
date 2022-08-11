@@ -38,4 +38,40 @@ describe("#ProductReducer", () => {
       filteredProducts: []
     });
   });
+
+  test("should return current state when include SEARCH_KEY", () => {
+    const mockAction: ProductActions = {
+      type: ProductActionType.SET_SEARCH_KEY,
+      payload: "a"
+    };
+    const newSate = productReducer(
+      { ...initialState, products: [mockProduct], currentProduct: mockProduct },
+      mockAction
+    );
+    expect(newSate).toEqual({
+      products: [mockProduct],
+      currentProduct: { ...mockProduct } as IProduct,
+      currentProductTypes: [],
+      searchKey: "a",
+      filteredProducts: [mockProduct]
+    });
+  });
+
+  test("should return current state when not include SEARCH_KEY", () => {
+    const mockAction: ProductActions = {
+      type: ProductActionType.SET_SEARCH_KEY,
+      payload: "s"
+    };
+    const newSate = productReducer(
+      { ...initialState, products: [mockProduct], currentProduct: mockProduct },
+      mockAction
+    );
+    expect(newSate).toEqual({
+      products: [mockProduct],
+      currentProduct: { ...mockProduct } as IProduct,
+      currentProductTypes: [],
+      searchKey: "s",
+      filteredProducts: []
+    });
+  });
 });
